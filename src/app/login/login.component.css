@@ -1,0 +1,17 @@
+.logo{
+  height: 5em;
+  width: 5em;
+  margin: 2em;
+}
+
+.messageErreur{
+  color: brown;
+}
+
+.cadreLogin{
+  background-color: grey;
+}
+
+button{
+  margin: 2em;
+}

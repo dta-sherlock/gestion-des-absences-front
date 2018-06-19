@@ -3,6 +3,14 @@
   "project": {
     "name": "front"
   },
+  "styles": [
+    "../node_modules/bootstrap/dist/css/bootstrap.min.css",
+    "styles.scss"
+  ],
+  "script": [
+    "../node_modules/jquery/dist/jquery.js",
+    "../node_modules/bootstrap/dist/js/bootstrap.js"
+  ],
   "apps": [
     {
       "root": "src",
@@ -21,7 +29,8 @@
       "styles": [
         "styles.css"
       ],
-      "scripts": [],
+      "scripts": [
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",

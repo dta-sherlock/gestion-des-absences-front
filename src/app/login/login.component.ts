@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
   mdpCtrl: FormControl;
   emailCtrl: FormControl;
   loginForm: FormGroup;
+  authentificationValide: boolean = true;
 
   constructor(fb: FormBuilder) {
     this.emailCtrl = fb.control('', [Validators.email, Validators.required]);
@@ -33,15 +34,21 @@ export class LoginComponent implements OnInit {
   }
 
   handleSubmit() {
+
     this.utilisateurs.forEach(u => {
       if (u.email === this.utilisateur.email && u.mdp === this.utilisateur.mdp) {
         ROLE_UTILISATEUR.role = u.role;
+        this.authentificationValide = true;
 
       }
 
     });
+    if (ROLE_UTILISATEUR.role === '') {
+      this.authentificationValide = false;
+    }
 
     console.log(ROLE_UTILISATEUR.role);
+    ROLE_UTILISATEUR.role = '';
   }
 
   ngOnInit() {

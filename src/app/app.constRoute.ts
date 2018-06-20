@@ -1,4 +1,6 @@
+//menu
 export  const PATH_HOME:string='';
+export  const PATH_LOGIN:string='login';
 //Gestion des absences
 export  const PATH_ABCENCES:string='absences';
 export  const PATH_ABCENCES_AJOUT:string='ajouter';

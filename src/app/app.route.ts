@@ -16,7 +16,6 @@ import {AbsenceManagementShowComponent} from './absence-management-show/absence-
 
 
 export const ROUTES:Routes =[
-
   {path:PATH_HOME,component:HomeComponent},
   {path:PATH_ABCENCES,component:AbsencesManagementComponent,
   children:[

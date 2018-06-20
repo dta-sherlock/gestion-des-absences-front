@@ -1,6 +1,6 @@
 <div class="container">
   <h1>Gestion des absences</h1>
-  <table class="table table-striped" >
+  <table class="table table-striped centre">
     <thead class="table-active">
     <tr>
       <th>Date de début</th>
@@ -11,38 +11,27 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
-      <td>1</td>
-      <td>2</td>
-      <td>3</td>
-      <td>4</td>
-      <td><a href="" [routerLink]="['/absences/modifier']"><fa name="edit"></fa></a></td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>2</td>
-      <td>3</td>
-      <td>4</td>
-      <td><a href="" [routerLink]="['/absences/supprimer']"><fa name="trash" animation="spin"></fa></a></td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>2</td>
-      <td>3</td>
-      <td>4</td>
-      <td><a href="" [routerLink]="['/absences/visualiser']"><fa name="eye" animation="spin"></fa></a></td>
+    <tr *ngFor="let absence of absences">
+      <td> {{absence.dateDebut| date:'dd/MM/yyyy' }}</td>
+      <td> {{absence.dateFin| date:'dd/MM/yyyy' }}</td>
+      <td> {{absence.type}}</td>
+      <td> {{absence.statut}}</td>
+      <td><a href="" [routerLink]="['/absences/' +absence.action]">{{absence.action}}
+      </a></td>
     </tr>
     </tbody>
   </table>
   <div class="offset-8">
     <div class="row">
-      <p id="add">Demander une absence <button class="btn btn-primary" [routerLink]="['/absences/ajouter']" >+</button></p>
+      <p id="add">Demander une absence
+        <button class="btn btn-primary" [routerLink]="['/absences/ajouter']">+</button>
+      </p>
     </div>
   </div>
   <div>
     <p>Solde des compteurs :</p>
     <ul>
-      <li>Congées payés : </li>
+      <li>Congées payés :</li>
       <li>RTT :
       </li>
     </ul>

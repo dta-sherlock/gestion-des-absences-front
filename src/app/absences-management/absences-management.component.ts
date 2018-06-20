@@ -1,5 +1,4 @@
-import {Component, NgModule, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
+import {Component, OnInit} from '@angular/core';
 import {Absence} from '../model/absence';
 import {typeEnum} from '../model/typeEnum';
 import {statut} from '../model/EumStatu';
@@ -13,7 +12,7 @@ import {CRUD_Enum} from '../model/CRUD_Enum';
 })
 export class AbsencesManagementComponent implements OnInit {
 absences:Array<Absence>=[];
-  constructor(private route: ActivatedRoute) { }
+  constructor() { }
 
   ngOnInit() {
     this.absences=[

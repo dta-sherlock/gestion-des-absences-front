@@ -8,6 +8,9 @@ import {Router} from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  apiUrl = environment.apiUrl;
-  constructor(private  router:Router){}
+  constructor(private  router: Router) {}
+
+
+
+
 }

@@ -23,6 +23,7 @@
     "@angular/platform-browser": "^5.2.0",
     "@angular/platform-browser-dynamic": "^5.2.0",
     "@angular/router": "^5.2.0",
+    "@ng-bootstrap/ng-bootstrap": "^1.1.2",
     "ajv": "^6.5.1",
     "ajv-keywords": "^3.2.0",
     "angular": "^1.7.2",

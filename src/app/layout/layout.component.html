@@ -9,36 +9,36 @@
       </button>
     </div>
 
-    <div class="screenLaptop nav-item mr-2 text-light float-right">Utilisateur
-      <button type="button" class="btn btn-light ">Déconnexion</button>
+    <div class="screenLaptop nav-item mr-2 text-light float-right">Bonjour, {{nomUtilisateur}}
+      <button type="button" class="btn btn-light" (click)="deconnexion()">Déconnexion</button>
     </div>
 
     <div [ngbCollapse]="isNavbarCollapsed" class="collapse navbar-collapse" id="navbarsDefault">
 
       <div class="navbar-collapse ml-2 ">
         <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active" href="#">Accueil</a>
+          <li  class="nav-item">
+            <a class="nav-link active" href="" routerLink="/">Accueil</a>
+          </li>
+          <li class="nav-item" >
+            <a class="nav-link"  href="" routerLink="/absences">Gestion des absences</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Gestion des absences</a>
+            <a class="nav-link"   href="#">Planning des absences</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Planning des absences</a>
+            <a class="nav-link"  href="#" >Validation demandes</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Validation demandes</a>
+            <a class="nav-link"   href="#" >Vues synthétiques</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Vues synthétiques</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link " href="#">Jours féries</a>
+            <a class="nav-link "  href="#">Jours féries</a>
           </li>
         </ul>
       </div>
-      <div class="screenMobile nav-item mr-2 text-light float-right">Utilisateur
-        <button type="button" class="btn btn-light ">Déconnexion</button>
+      <div class="screenMobile nav-item mr-2 text-light float-right">Bonjour, {{nomUtilisateur}}
+        <button type="button" class="btn btn-light" (click)="deconnexion()">Déconnexion</button>
       </div>
     </div>
   </nav>

@@ -1,25 +1,3 @@
-@media screen {
-  .screenLaptop {
-    display: none;
-  }
 
-  .screenMobile {
-    display: block;
-  }
 
-}
-
-@media screen and (max-width: 767px) {
-  .screenLaptop {
-    display: block;
-  }
-
-  .screenMobile {
-    display: none;
-  }
-}
-
-#content {
-  margin-top: 5.5em
-}
 

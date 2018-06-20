@@ -1,4 +1,3 @@
-
 <div class="container">
   <div class=" col-md-12 cadreLogin ">
     <div class="row justify-content-center">
@@ -7,7 +6,7 @@
     </div>
     <h4 class="row justify-content-center">GDA</h4>
     <span class="row justify-content-center">Gestion des Absences</span>
-    <form class="justify-content-center" (ngSubmit)="handleSubmit()">
+    <form class="justify-content-center" (ngSubmit)="connexion()">
       <div>
         <label class="offset-md-3 col-md-2">Email: </label>
         <input [formControl]="emailCtrl" [(ngModel)]="utilisateur.email" class="col-md-4 input-angular">
@@ -35,6 +34,7 @@
         </div>
 
       </div>
+      <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
     </form>
   </div>
 </div>

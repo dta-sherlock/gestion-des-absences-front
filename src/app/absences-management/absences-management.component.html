@@ -1,0 +1,59 @@
+<div class="container">
+  <h1>Gestion des absences</h1>
+  <table class="table table-striped">
+    <thead class="table-active">
+    <tr>
+      <th>Date de début</th>
+      <th>Date de fin</th>
+      <th>Type</th>
+      <th>Statut</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td><a href="" [routerLink]="['/absences/modifier']">
+        <fa name="edit"></fa>
+      </a></td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td><a href="" [routerLink]="['/absences/supprimer']">
+        <fa name="trash" animation=""></fa>
+      </a></td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td><a href="" [routerLink]="['/absences/visualiser']">
+        <fa name="eye" animation=""></fa>
+      </a></td>
+    </tr>
+    </tbody>
+  </table>
+  <div class="offset-8">
+    <div class="row">
+      <p id="add">Demander une absence
+        <button class="btn btn-primary" [routerLink]="['/absences/ajouter']">+</button>
+      </p>
+    </div>
+  </div>
+  <div>
+    <p>Solde des compteurs :</p>
+    <ul>
+      <li>Congées payés :</li>
+      <li>RTT :
+      </li>
+    </ul>
+  </div>
+</div>
+<router-outlet></router-outlet>

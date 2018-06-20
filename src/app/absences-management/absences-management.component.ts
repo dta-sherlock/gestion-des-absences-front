@@ -9,7 +9,8 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class AbsencesManagementComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute) {
+  }
 
   ngOnInit() {
   }

@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+import {Routes} from '@angular/router';
 import {HomeComponent} from './home/home.component';
 import {AbsencesManagementComponent} from './absences-management/absences-management.component';
 import {
@@ -15,15 +15,17 @@ import {AbsenceManagementUpdateComponent} from './absence-management-update/abse
 import {AbsenceManagementShowComponent} from './absence-management-show/absence-management-show.component';
 
 
-export const ROUTES:Routes =[
-  {path:PATH_HOME,component:HomeComponent},
-  {path:PATH_ABCENCES,component:AbsencesManagementComponent,
-  children:[
-    { path: '', pathMatch: 'full', redirectTo: PATH_ABCENCES},
-    {path:PATH_ABCENCES_AJOUT,component:AbsenceManagementAddComponent},
-    {path:PATH_ABCENCES_DELETE,component:AbsenceManagementDeleteComponent},
-    {path:PATH_ABCENCES_UPDATE,component:AbsenceManagementUpdateComponent},
-    {path:PATH_ABCENCES_SHOW,component:AbsenceManagementShowComponent}
-  ]}
-]
+export const ROUTES: Routes = [
+  {path: PATH_HOME, component: HomeComponent},
+  {
+    path: PATH_ABCENCES, component: AbsencesManagementComponent,
+    children: [
+      {path: '', pathMatch: 'full', redirectTo: PATH_ABCENCES},
+      {path: PATH_ABCENCES_AJOUT, component: AbsenceManagementAddComponent},
+      {path: PATH_ABCENCES_DELETE, component: AbsenceManagementDeleteComponent},
+      {path: PATH_ABCENCES_UPDATE, component: AbsenceManagementUpdateComponent},
+      {path: PATH_ABCENCES_SHOW, component: AbsenceManagementShowComponent}
+    ]
+  }
+];
 

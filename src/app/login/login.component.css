@@ -1,17 +1,17 @@
-.logo{
+.logo {
   height: 5em;
   width: 5em;
   margin: 2em;
 }
 
-.messageErreur{
+.messageErreur {
   color: brown;
 }
 
-.cadreLogin{
+.cadreLogin {
   background-color: grey;
 }
 
-button{
+button {
   margin: 2em;
 }

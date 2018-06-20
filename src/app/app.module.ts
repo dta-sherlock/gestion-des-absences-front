@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+
 import { HomeComponent } from './home/home.component';
 import { AbsencesManagementComponent } from './absences-management/absences-management.component';
 import { AbsenceManagementAddComponent } from './absence-management-add/absence-management-add.component';
@@ -14,6 +17,7 @@ import { AbsenceManagementShowComponent } from './absence-management-show/absenc
 import {AngularFontAwesomeModule} from 'angular-font-awesome';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,13 +26,17 @@ import {AngularFontAwesomeModule} from 'angular-font-awesome';
     AbsenceManagementAddComponent,
     AbsenceManagementDeleteComponent,
     AbsenceManagementUpdateComponent,
-    AbsenceManagementShowComponent
+    AbsenceManagementShowComponent,
+    LoginComponent
+
   ],
   imports: [
     BrowserModule,
     NgbModule.forRoot(),
     RouterModule.forRoot(ROUTES),
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

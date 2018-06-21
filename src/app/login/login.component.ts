@@ -5,6 +5,7 @@ import {Router} from '@angular/router';
 import {PATH_LAYOUT} from '../app.constRoute';
 import {UtilisateurService} from '../services/utilisateur.service';
 import {UTILISATEUR} from '../app.constante';
+import * as sha from 'sha256';
 
 
 @Component({
@@ -18,10 +19,9 @@ import {UTILISATEUR} from '../app.constante';
 })
 export class LoginComponent implements OnInit {
   utilisateurs: Array<Utilisateur> = [
-    new Utilisateur('admin@gmail.com', 'admin', 'Administrateur', 'Jean', ''),
-    new Utilisateur('collabo@gmail.com', 'collabo', 'collabo', 'Jacques', ''),
-    new Utilisateur('utilisateur@gmail.com', 'utilisateur', 'Employé', 'Alfred', ''),
-    new Utilisateur('manager@gmail.com', 'manager', 'Manager', 'Georges', '')
+    new Utilisateur('admin@gmail.com', sha('admin'), 'Administrateur', 'Jean', ''),
+    new Utilisateur('utilisateur@gmail.com', sha('utilisateur'), 'Employé', 'Alfred', ''),
+    new Utilisateur('manager@gmail.com', sha('manager'), 'Manager', 'Georges', '')
   ];
   utilisateur: Utilisateur;
   mdpCtrl: FormControl;
@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
   connexion() {
 
     this.utilisateurs.forEach(u => {
-      if (u.email === this.utilisateur.email && u.mdp === this.utilisateur.mdp) {
+      if (u.email === this.utilisateur.email &&  u.mdp === sha(this.utilisateur.mdp)) {
         this.utilisateurService.initialisationRole(u);
         this.authentificationValide = true;
         this.router.navigate([PATH_LAYOUT]);

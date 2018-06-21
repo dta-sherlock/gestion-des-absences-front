@@ -15,7 +15,7 @@ import Utilisateur from '../model/utilisateur';
 })
 export class LayoutComponent implements OnInit {
 
-  utilisateur: Utilisateurs = UTILISATEUR;
+  utilisateur: Utilisateur = UTILISATEUR;
 
 
 

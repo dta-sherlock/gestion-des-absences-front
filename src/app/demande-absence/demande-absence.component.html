@@ -1,14 +1,16 @@
 <h2>Demande d'absence</h2>
 <br/>
 <br/>
-<form class="container justify-content-center">
+<form class="container justify-content-center" (ngSubmit)="handleSubmit()" [formGroup]="userForm">
 
   <div class="form-group row justify-content-center">
-    <label for="dateDebut" class="col-form-label mr-2">Date de début</label>
+
+
+    <label for="dateDebut" class="col-form-label mr-2" >Date de début</label>
     <div class="col-input-group">
       <div class="input-group">
         <input class="form-control" placeholder="yyyy-mm-dd"
-               name="dp"  ngbDatepicker #d="ngbDatepicker" id="dateDebut">
+               name="dp"  ngbDatepicker [dayTemplate]="customDay" #d="ngbDatepicker" id="dateDebut" [formControl]="dateDebCtrl" [(ngModel)]="absence.dateDeb">
         <div class="input-group-append">
           <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
             <img src="../../assets/img/calendar.png" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
@@ -16,14 +18,21 @@
         </div>
       </div>
     </div>
+    <div class="col" *ngIf="dateDebCtrl.dirty && dateDebCtrl.hasError('required')">
+      <span class="erreur">Le champ est requis</span>
+    </div>
+    <div class="col" *ngIf="dateDebCtrl.dirty && dateDebCtrl.hasError('isGreaterThanToday')">
+      <span class="erreur">La date doit être supérieure à la date du jour</span>
+    </div>
   </div>
+
 
   <div class="form-group row justify-content-center">
     <label for="dateFin" class="col-form-label mr-2">Date de fin</label>
     <div class="col-input-group">
       <div class="input-group">
         <input class="form-control" placeholder="yyyy-mm-dd"
-               name="dp"  ngbDatepicker #e="ngbDatepicker" id="dateFin">
+               name="dp"  ngbDatepicker [dayTemplate]="customDay" #e="ngbDatepicker" id="dateFin" [formControl]="dateFinCtrl" [(ngModel)]="absence.dateFin">
         <div class="input-group-append">
           <button class="btn btn-outline-secondary" (click)="e.toggle()" type="button">
             <img src="../../assets/img/calendar.png" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
@@ -31,11 +40,17 @@
         </div>
       </div>
     </div>
+    <div class="col" *ngIf="dateFinCtrl.dirty && dateFinCtrl.hasError('required')">
+      <span class="erreur">Le champ est requis</span>
+    </div>
+    <div class="col" *ngIf="dateFinCtrl.dirty && dateFinCtrl.hasError('isGreaterThanToday')">
+      <span class="erreur">La date doit être supérieure à la date du jour</span>
+    </div>
   </div>
 
   <div class="form-group row justify-content-center">
     <label for="typeConges" class="col-form-label mr-2">Type de congé</label>
-    <select class="custom-select my-1 mr-sm-2" id="typeConges" style="width: 15rem">
+    <select class="custom-select my-1 mr-sm-2" id="typeConges" style="width: 15rem" [(ngModel)]="absence.type" [ngModelOptions]="{standalone: true}">
       <option selected>(Type de congé)</option>
       <option>Congé payé</option>
       <option>RTT</option>
@@ -45,15 +60,28 @@
 
   <div class="form-group row justify-content-center">
     <label for="motif" class="col-form-label mr-2">Motif</label>
-    <textarea class="col-form-control" id="motif" rows="4" style="width: 25rem"></textarea>
+    <textarea class="col-form-control" id="motif" rows="4" style="width: 25rem" [(ngModel)]="absence.motif" [ngModelOptions]="{standalone: true}"></textarea>
   </div>
 
   <div class="form-group row">
-    <div class="offset-4 col-2 justify-content-center">
-      <input class="btn btn-danger align-self-end"type="button" value="Annuler">
+    <div class="col mr-2">
+      <div class="row justify-content-end">
+        <input (onclick)=retourVisualisationDemandes() class="btn btn-danger align-self-end"type="button" value="Annuler">
+      </div>
     </div>
-    <div class=" col-6">
-      <input class="btn btn-success" type="submit" value="Valider">
+    <div class="col">
+      <div class="row justify-content-start">
+        <input class="btn btn-success" type="submit" value="Valider" [disabled]="userForm.invalid">
+      </div>
     </div>
   </div>
 </form>
+
+<hr/>
+<pre>Model: {{ model | json}}</pre>
+
+<ng-template #customDay let-date="date" let-currentMonth="currentMonth" let-selected="selected" let-disabled="disabled" let-focused="focused">
+  <span class="custom-day" [class.hidden]="date.month !== currentMonth" [class.nonCliquable]="avantDate(date)">
+    {{ date.day }}
+  </span>
+</ng-template>

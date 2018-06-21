@@ -1,6 +1,6 @@
 <div class="container">
   <h1>Gestion des absences</h1>
-  <table class="table table-striped">
+  <table class="table table-striped centre">
     <thead class="table-active">
     <tr>
       <th>Date de début</th>
@@ -11,31 +11,12 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
-      <td>1</td>
-      <td>2</td>
-      <td>3</td>
-      <td>4</td>
-      <td><a href="" [routerLink]="['/absences/modifier']">
-        <fa name="edit"></fa>
-      </a></td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>2</td>
-      <td>3</td>
-      <td>4</td>
-      <td><a href="" >
-        <fa name="trash" animation=""></fa>
-      </a></td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>2</td>
-      <td>3</td>
-      <td>4</td>
-      <td><a href="" [routerLink]="['/absences/visualiser']">
-        <fa name="eye" animation=""></fa>
+    <tr *ngFor="let absence of absences">
+      <td> {{absence.dateDebut| date:'dd/MM/yyyy' }}</td>
+      <td> {{absence.dateFin| date:'dd/MM/yyyy' }}</td>
+      <td> {{absence.type}}</td>
+      <td> {{absence.statut}}</td>
+      <td><a href="" [routerLink]="['/absences/' +absence.action]">{{absence.action}}
       </a></td>
     </tr>
     </tbody>

@@ -16,6 +16,10 @@ import {AbsenceManagementShowComponent} from './absence-management-show/absence-
 import {AngularFontAwesomeModule} from 'angular-font-awesome';
 import {LayoutComponent} from './layout/layout.component';
 import {UtilisateurGuard} from './guards/utilisateur.guard';
+import { PlanningComponent } from './planning/planning.component';
+import { ValidationDemandeComponent } from './validation-demande/validation-demande.component';
+import { SynthetiqueComponent } from './synthetique/synthetique.component';
+import { JoursFeriesComponent } from './jours-feries/jours-feries.component';
 
 
 @NgModule({
@@ -27,7 +31,11 @@ import {UtilisateurGuard} from './guards/utilisateur.guard';
     AbsenceManagementUpdateComponent,
     AbsenceManagementShowComponent,
     LoginComponent,
-    LayoutComponent
+    LayoutComponent,
+    PlanningComponent,
+    ValidationDemandeComponent,
+    SynthetiqueComponent,
+    JoursFeriesComponent
 
   ],
   imports: [

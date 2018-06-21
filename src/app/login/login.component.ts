@@ -4,6 +4,7 @@ import Utilisateur from '../model/utilisateur';
 import {Router} from '@angular/router';
 import {PATH_LAYOUT} from '../app.constRoute';
 import {UtilisateurService} from '../services/utilisateur.service';
+import {UTILISATEUR} from '../app.constante';
 
 
 @Component({
@@ -17,10 +18,11 @@ import {UtilisateurService} from '../services/utilisateur.service';
 })
 export class LoginComponent implements OnInit {
   utilisateurs: Array<Utilisateur> = [
-    new Utilisateur('admin@gmail.com', 'admin', 'Administrateur', 'Jean'),
-    new Utilisateur('collabo@gmail.com', 'collabo', 'collabo', 'Jacques'),
-    new Utilisateur('utilisateur@gmail.com', 'utilisateur', 'Employé', 'Alfred'),
-    new Utilisateur('manager@gmail.com', 'manager', 'Manager', 'Georges')
+    new Utilisateur('admin@gmail.com', 'admin', 'Administrateur', 'Dubois', 'Jean', 8, 4),
+    new Utilisateur('collabo@gmail.com', 'collabo', 'collabo', 'Dupuis', 'Jacques', 12, 4),
+    new Utilisateur('utilisateur@gmail.com', 'utilisateur', 'Employé', 'Hitchcock', 'Alfred', 4, 0),
+    new Utilisateur('manager@gmail.com', 'manager', 'Manager', 'Sebastien', 'Georges', 0, 0)
+
   ];
   utilisateur: Utilisateur;
   mdpCtrl: FormControl;
@@ -49,13 +51,13 @@ export class LoginComponent implements OnInit {
       }
 
     });
-    if (this.utilisateurService.role === '') {
+    if (UTILISATEUR.role === '') {
       this.authentificationValide = false;
     }
   }
 
   ngOnInit() {
-    this.utilisateur = new Utilisateur('', '', '', '');
+    this.utilisateur = new Utilisateur('', '', '', '', '', -1, -1);
 
   }
 

@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {PATH_LOGIN} from '../app.constRoute';
 import {UtilisateurService} from '../services/utilisateur.service';
+import Utilisateur from '../model/utilisateur';
+import {UTILISATEUR} from '../app.constante';
 
 @Component({
   selector: 'app-layout',
@@ -13,8 +15,7 @@ import {UtilisateurService} from '../services/utilisateur.service';
 })
 export class LayoutComponent implements OnInit {
 
-  nomUtilisateur: String = this.utilisateurService.nom;
-  roleUtilisateur: String = this.utilisateurService.role;
+  utilisateur: Utilisateur = UTILISATEUR;
 
 
   isNavbarCollapsed = true;
@@ -28,7 +29,6 @@ export class LayoutComponent implements OnInit {
   deconnexion() {
     this.utilisateurService.reinitialisationRole();
     this.router.navigate([PATH_LOGIN]);
-    console.log(this.utilisateurService.role);
 
   }
 

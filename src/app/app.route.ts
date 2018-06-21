@@ -13,12 +13,14 @@ import {AbsenceManagementUpdateComponent} from './absence-management-update/abse
 import {AbsenceManagementShowComponent} from './absence-management-show/absence-management-show.component';
 import {LoginComponent} from './login/login.component';
 import {LayoutComponent} from './layout/layout.component';
+import {UtilisateurGuard} from './guards/utilisateur.guard';
 
 
 export const ROUTES: Routes = [
   {path: PATH_LOGIN, component: LoginComponent},
   {
     path: PATH_LAYOUT, component: LayoutComponent,
+    canActivateChild: [UtilisateurGuard],
     children: [
       {path: PATH_HOME, component: HomeComponent},
       {

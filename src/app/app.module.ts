@@ -15,6 +15,7 @@ import {ROUTES} from './app.route';
 import {AbsenceManagementShowComponent} from './absence-management-show/absence-management-show.component';
 import {AngularFontAwesomeModule} from 'angular-font-awesome';
 import {LayoutComponent} from './layout/layout.component';
+import {UtilisateurGuard} from './guards/utilisateur.guard';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import {LayoutComponent} from './layout/layout.component';
     ReactiveFormsModule
   ],
   providers: [
+    UtilisateurGuard
   ],
   bootstrap: [AppComponent]
 })

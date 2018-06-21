@@ -1,26 +1,24 @@
 import {Injectable} from '@angular/core';
 import Utilisateur from '../model/utilisateur';
+import {UTILISATEUR} from '../app.constante';
 
 @Injectable()
 export class UtilisateurService {
 
-
-  role = '';
-  nom = '';
-
   constructor() {
   }
 
-
   initialisationRole(utilisateur: Utilisateur) {
-    this.role = utilisateur.role;
-    this.nom = utilisateur.nom;
-    console.log(this.role);
+    UTILISATEUR.role = utilisateur.role;
+    UTILISATEUR.nom = utilisateur.nom;
+    UTILISATEUR.prenom = utilisateur.prenom;
+    UTILISATEUR.email = utilisateur.email;
   }
 
   reinitialisationRole() {
-    this.role = '';
-    this.nom = '';
+    UTILISATEUR.role = '';
+    UTILISATEUR.nom = '';
+    UTILISATEUR.prenom = '';
+    UTILISATEUR.email = '';
   }
-
 }

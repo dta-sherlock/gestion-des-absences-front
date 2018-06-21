@@ -6,7 +6,7 @@
     </div>
     <h4 class="row justify-content-center">GDA</h4>
     <span class="row justify-content-center">Gestion des Absences</span>
-    <form class="justify-content-center" (ngSubmit)="connexion()">
+    <form class="justify-content-center" (ngSubmit)="connexion()" [formGroup]="loginForm">
       <div>
         <label class="offset-md-3 col-md-2">Email: </label>
         <input [formControl]="emailCtrl" [(ngModel)]="utilisateur.email" class="col-md-4 input-angular">

@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 import {PATH_LOGIN} from '../app.constRoute';
 import {UtilisateurService} from '../services/utilisateur.service';
 import {UTILISATEUR} from '../app.constante';
+import Utilisateur from '../model/utilisateur';
 
 @Component({
   selector: 'app-layout',
@@ -14,7 +15,7 @@ import {UTILISATEUR} from '../app.constante';
 })
 export class LayoutComponent implements OnInit {
 
-  utilisateur: Utilisateur = UTILISATEUR;
+  utilisateur: Utilisateurs = UTILISATEUR;
 
 
 

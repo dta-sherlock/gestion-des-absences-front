@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {PATH_LOGIN} from '../app.constRoute';
-import Utilisateur from '../model/utilisateur';
 import {UtilisateurService} from '../services/utilisateur.service';
 import {UTILISATEUR} from '../app.constante';
 

@@ -24,16 +24,16 @@
             <a class="nav-link"  href="" routerLink="/absences">Gestion des absences</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link"  *ngIf="utilisateur.role == 'Administrateur' || utilisateur.role == 'Employé' || utilisateur.role == 'Manager'" href="" routerLink="/" >Planning des absences</a>
+            <a class="nav-link"  *ngIf="utilisateur.role == 'Administrateur' || utilisateur.role == 'Employé' || utilisateur.role == 'Manager'" href="" routerLink="/planning" >Planning des absences</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" *ngIf="utilisateur.role == 'Manager'" href="" routerLink="/" >Validation demandes</a>
+            <a class="nav-link" *ngIf="utilisateur.role == 'Manager'" href="" routerLink="/validation" >Validation demandes</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link"  *ngIf="utilisateur.role == 'Manager'" href="" routerLink="/" >Vues synthétiques</a>
+            <a class="nav-link"  *ngIf="utilisateur.role == 'Manager'" href="" routerLink="/synthetique" >Vues synthétiques</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " *ngIf="utilisateur.role == 'Administrateur' || utilisateur.role == 'Employé' || utilisateur.role == 'Manager'" href="" routerLink="/" >Jours féries</a>
+            <a class="nav-link " *ngIf="utilisateur.role == 'Administrateur' || utilisateur.role == 'Employé' || utilisateur.role == 'Manager'" href="" routerLink="/feries" >Jours féries</a>
           </li>
         </ul>
       </div>

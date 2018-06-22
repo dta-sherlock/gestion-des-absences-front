@@ -35,7 +35,6 @@ import { JoursFeriesComponent } from './jours-feries/jours-feries.component';
     ValidationDemandeComponent,
     SynthetiqueComponent,
     JoursFeriesComponent
-
   ],
   imports: [
     BrowserModule,

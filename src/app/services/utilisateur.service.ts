@@ -1,14 +1,13 @@
 import {Injectable} from '@angular/core';
 import Utilisateur from '../model/utilisateur';
-import {UTILISATEUR} from '../app.utilisateur';
 import {Observable} from 'rxjs/Observable';
 import {HttpClient} from '@angular/common/http';
-import {PATH_LAYOUT} from '../app.constRoute';
 import {Router} from '@angular/router';
 import * as sha from 'sha256';
 
 
 const API_BASE_URL = 'https://absences-back.cleverapps.io/api';
+export const UTILISATEUR: Utilisateur = new Utilisateur(0, '', '', '', '', '', 0, 0);
 
 @Injectable()
 export class UtilisateurService {
@@ -36,20 +35,10 @@ export class UtilisateurService {
     UTILISATEUR.soldeRtt = 0;
   }
 
-  authentificationIsValid(utilisateur: Utilisateur) {
-    this.getUtilisateurs().toPromise().then(
-      utilisateurs =>
-        utilisateurs.forEach(u => {
-          if (u.email.toString() === utilisateur.email.toString()
-            && u.mdp.toString() === sha(utilisateur.mdp.toString())) {
-            this.initialisationRole(u);
-            this.router.navigate([PATH_LAYOUT]);
-            return true;
-          }
 
-        })
-    );
-   return false;
+  getUtilisateurByEmailAndMdp(utilisateur: Utilisateur) {
+    return this.http.get<Utilisateur>(`${API_BASE_URL}/utilisateurs?email=${utilisateur.email}&mdp=${sha(utilisateur.mdp)}`);
+
   }
 
   getUtilisateurs(): Observable<Utilisateur[]> {

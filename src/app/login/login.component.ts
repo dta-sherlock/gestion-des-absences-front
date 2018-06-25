@@ -3,8 +3,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import Utilisateur from '../model/utilisateur';
 import {Router} from '@angular/router';
 import {UtilisateurService} from '../services/utilisateur.service';
-
-
+import {PATH_LAYOUT} from '../app.constRoute';
 
 
 @Component({
@@ -34,7 +33,17 @@ export class LoginComponent implements OnInit {
   }
 
   connexion() {
-    this.authentificationValide = this.utilisateurService.authentificationIsValid(this.utilisateur);
+    this.utilisateurService.getUtilisateurByEmailAndMdp(this.utilisateur).toPromise().then(u => {
+      if (u != null) {
+        this.utilisateurService.initialisationRole(u);
+        this.authentificationValide = true;
+        this.router.navigate[PATH_LAYOUT];
+      }
+      else {
+        this.authentificationValide = false;
+      }
+
+    });
   }
 
   ngOnInit() {

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {NgbDateStruct} from "@ng-bootstrap/ng-bootstrap";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {isGreaterThanTodayValidator} from "../validators/validators";
+import {DemandeAbsence} from "../Model/demande";
 
 @Component({
   selector: 'app-demande-absence',
@@ -21,12 +22,7 @@ export class DemandeAbsenceComponent implements OnInit {
   dateFinCtrl: FormControl;
   userForm: FormGroup;
 
-  absence = {
-    "dateDeb": "",
-    "dateFin": "",
-    "type": "",
-    "motif": ""
-  }
+  absence: DemandeAbsence = new DemandeAbsence(null,null,"","");
 
   model: NgbDateStruct;
   avantDate(date: NgbDateStruct) {

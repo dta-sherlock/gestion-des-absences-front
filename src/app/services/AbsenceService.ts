@@ -4,7 +4,7 @@ import {Observable} from 'rxjs/Observable';
 import {Absence} from '../model/absence';
 import {AbsencesApi} from './absencesApi';
 
-const API_BASE_URL: string = 'http://localhost:8080/api/';
+const API_BASE_URL: string = 'https://absences-back.cleverapps.io/api/';
 const API_ABSENCES: string = 'absences';
 
 @Injectable()

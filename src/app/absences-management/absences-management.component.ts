@@ -15,7 +15,7 @@ import {HttpClient} from '@angular/common/http';
 export class AbsencesManagementComponent implements OnInit {
 
   closeResult: string;
-  private _absences: Array<Absence>;
+  absences: Array<Absence>;
   utilisateur: Utilisateur = UTILISATEUR;
   rtt: number;
   congepaye: number;
@@ -41,7 +41,7 @@ export class AbsencesManagementComponent implements OnInit {
     }
   }
   deleteAbsence(absences: Absence) {
-    this._absences.splice(this._absences.indexOf(absences), 1);
+    this.absences.splice(this.absences.indexOf(absences), 1);
     return this.service.deleteAbsenceId(absences).subscribe();
   }
 
@@ -49,7 +49,7 @@ export class AbsencesManagementComponent implements OnInit {
     this.rtt = this.utilisateur.soldeRTT;
     this.congepaye = this.utilisateur.soldeConges;
     this.service.getAbsences().subscribe(abs => {
-      this._absences = abs;
+      this.absences = abs;
     });
   }
 }

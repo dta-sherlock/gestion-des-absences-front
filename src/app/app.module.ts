@@ -10,7 +10,6 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { DemandeAbsenceComponent } from './demande-absence/demande-absence.component';
 import {AbsencesManagementComponent} from './absences-management/absences-management.component';
-import {AbsenceManagementAddComponent} from './absence-management-add/absence-management-add.component';
 import {AbsenceManagementUpdateComponent} from './absence-management-update/absence-management-update.component';
 import {RouterModule} from '@angular/router';
 import {ROUTES} from './app.route';
@@ -29,7 +28,6 @@ import { JoursFeriesComponent } from './jours-feries/jours-feries.component';
     HomeComponent,
     DemandeAbsenceComponent,
     AbsencesManagementComponent,
-    AbsenceManagementAddComponent,
     AbsenceManagementUpdateComponent,
     AbsenceManagementShowComponent,
     LoginComponent,

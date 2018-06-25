@@ -66,19 +66,17 @@
   <div class="form-group row">
     <div class="col mr-2">
       <div class="row justify-content-end">
-        <input (onclick)=retourVisualisationDemandes() class="btn btn-danger align-self-end"type="button" value="Annuler">
+        <input (onclick)=retourVisualisationDemandes() class="btn btn-danger align-self-end"type="button" value="Annuler" [routerLink]="['/absences']">
       </div>
     </div>
     <div class="col">
       <div class="row justify-content-start">
-        <input class="btn btn-success" type="submit" value="Valider" [disabled]="userForm.invalid">
+        <input class="btn btn-success" type="submit" value="Valider" [disabled]="userForm.invalid" (click)="changeSuccessMessage()">
       </div>
     </div>
   </div>
 </form>
-
-<hr/>
-<pre>Model: {{ model | json}}</pre>
+<ngb-alert *ngIf="successMessage" type="success" (close)="successMessage = null">{{ successMessage }}</ngb-alert>
 
 <ng-template #customDay let-date="date" let-currentMonth="currentMonth" let-selected="selected" let-disabled="disabled" let-focused="focused">
   <span class="custom-day" [class.hidden]="date.month !== currentMonth" [class.nonCliquable]="avantDate(date)">

@@ -3,6 +3,8 @@ import {NgbDateStruct} from "@ng-bootstrap/ng-bootstrap";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {isGreaterThanTodayValidator} from "../validators/validators";
 import {DemandeAbsence} from "../Model/demande";
+import {Subject} from 'rxjs';
+import {debounceTime} from 'rxjs/operators';
 
 @Component({
   selector: 'app-demande-absence',
@@ -17,7 +19,8 @@ export class DemandeAbsenceComponent implements OnInit {
   retourVisualisationDemandes() {
 
   }
-
+  private _success = new Subject<string>();
+  successMessage: string;
   dateDebCtrl: FormControl;
   dateFinCtrl: FormControl;
   userForm: FormGroup;
@@ -48,5 +51,12 @@ export class DemandeAbsenceComponent implements OnInit {
     });
   }
   ngOnInit() {
+    this._success.subscribe((message) => this.successMessage = message);
+    this._success.pipe(
+      debounceTime(3000)
+    ).subscribe(() => this.successMessage = null);
+  }
+  public changeSuccessMessage() {
+    this._success.next(`La demande d'absence a bien été envoyée.`);
   }
 }

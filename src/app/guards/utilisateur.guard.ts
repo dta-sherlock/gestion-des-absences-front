@@ -1,24 +1,23 @@
 import {Injectable} from '@angular/core';
-import { ActivatedRouteSnapshot, RouterStateSnapshot, CanActivateChild, Router} from '@angular/router';
+import {ActivatedRouteSnapshot, RouterStateSnapshot, CanActivateChild, Router} from '@angular/router';
 import {Observable} from 'rxjs/Observable';
-import {UTILISATEUR} from '../services/utilisateur.service';
+import {UtilisateurService} from '../services/utilisateur.service';
 
 @Injectable()
 export class UtilisateurGuard implements CanActivateChild {
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private utilisateurService: UtilisateurService) {
   }
 
 
   canActivateChild(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    if (UTILISATEUR.grade.toString() === '') {
-      this.router.navigate(['/connexion']);
-
+    if (this.utilisateurService.getUtilisateurCourant() === null) {
+      return true;
     }
     else {
-      return true;
+      this.router.navigate(['/connexion']);
     }
 
   }

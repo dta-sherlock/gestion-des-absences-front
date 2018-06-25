@@ -1,12 +1,12 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
-import { AppComponent } from './app.component';
+import {AppComponent} from './app.component';
 import {LoginComponent} from './login/login.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
-import { HomeComponent } from './home/home.component';
+import {HomeComponent} from './home/home.component';
 import {AbsencesManagementComponent} from './absences-management/absences-management.component';
 import {AbsenceManagementAddComponent} from './absence-management-add/absence-management-add.component';
 import {AbsenceManagementUpdateComponent} from './absence-management-update/absence-management-update.component';
@@ -16,10 +16,11 @@ import {AbsenceManagementShowComponent} from './absence-management-show/absence-
 import {AngularFontAwesomeModule} from 'angular-font-awesome';
 import {LayoutComponent} from './layout/layout.component';
 import {UtilisateurGuard} from './guards/utilisateur.guard';
-import { PlanningComponent } from './planning/planning.component';
-import { ValidationDemandeComponent } from './validation-demande/validation-demande.component';
-import { SynthetiqueComponent } from './synthetique/synthetique.component';
-import { JoursFeriesComponent } from './jours-feries/jours-feries.component';
+import {PlanningComponent} from './planning/planning.component';
+import {ValidationDemandeComponent} from './validation-demande/validation-demande.component';
+import {SynthetiqueComponent} from './synthetique/synthetique.component';
+import {JoursFeriesComponent} from './jours-feries/jours-feries.component';
+import { HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
@@ -35,7 +36,7 @@ import { JoursFeriesComponent } from './jours-feries/jours-feries.component';
     PlanningComponent,
     ValidationDemandeComponent,
     SynthetiqueComponent,
-    JoursFeriesComponent
+    JoursFeriesComponent,
 
   ],
   imports: [
@@ -44,11 +45,14 @@ import { JoursFeriesComponent } from './jours-feries/jours-feries.component';
     RouterModule.forRoot(ROUTES),
     AngularFontAwesomeModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
-    UtilisateurGuard
+    UtilisateurGuard,
+
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

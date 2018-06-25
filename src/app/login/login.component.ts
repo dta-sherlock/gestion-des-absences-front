@@ -2,10 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import Utilisateur from '../model/utilisateur';
 import {Router} from '@angular/router';
-import {PATH_LAYOUT} from '../app.constRoute';
 import {UtilisateurService} from '../services/utilisateur.service';
-import {UTILISATEUR} from '../app.constante';
-import * as sha from 'sha256';
+
+
 
 
 @Component({
@@ -18,11 +17,6 @@ import * as sha from 'sha256';
   ]
 })
 export class LoginComponent implements OnInit {
-  utilisateurs: Array<Utilisateur> = [
-    new Utilisateur('admin@gmail.com', sha('admin'), 'Administrateur', 'Jean', ''),
-    new Utilisateur('utilisateur@gmail.com', sha('utilisateur'), 'Employé', 'Alfred', ''),
-    new Utilisateur('manager@gmail.com', sha('manager'), 'Manager', 'Georges', '')
-  ];
   utilisateur: Utilisateur;
   mdpCtrl: FormControl;
   emailCtrl: FormControl;
@@ -30,7 +24,7 @@ export class LoginComponent implements OnInit {
   authentificationValide = true;
 
   constructor(private router: Router, private utilisateurService: UtilisateurService,
-               fb: FormBuilder) {
+              fb: FormBuilder) {
     this.emailCtrl = fb.control('', [Validators.email, Validators.required]);
     this.mdpCtrl = fb.control('', [Validators.required]);
     this.loginForm = fb.group({
@@ -40,23 +34,12 @@ export class LoginComponent implements OnInit {
   }
 
   connexion() {
-
-    this.utilisateurs.forEach(u => {
-      if (u.email === this.utilisateur.email &&  u.mdp === sha(this.utilisateur.mdp)) {
-        this.utilisateurService.initialisationRole(u);
-        this.authentificationValide = true;
-        this.router.navigate([PATH_LAYOUT]);
-
-      }
-
-    });
-    if (UTILISATEUR.role === '') {
-      this.authentificationValide = false;
-    }
+    this.authentificationValide = this.utilisateurService.authentificationIsValid(this.utilisateur);
   }
 
   ngOnInit() {
-    this.utilisateur = new Utilisateur('', '', '', '', '');
+
+    this.utilisateur = new Utilisateur(0, '', '', '', '', '', 0, 0);
 
   }
 

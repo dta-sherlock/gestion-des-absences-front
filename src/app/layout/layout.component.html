@@ -20,20 +20,20 @@
           <li  class="nav-item">
             <a class="nav-link active" href="" routerLink="/">Accueil</a>
           </li>
-          <li class="nav-item" *ngIf="utilisateur.role == 'Administrateur' || utilisateur.role == 'Employé' || utilisateur.role == 'Manager'">
+          <li class="nav-item" *ngIf="utilisateur.grade == 'Administrateur' || utilisateur.grade == 'Employé' || utilisateur.grade == 'Manager'">
             <a class="nav-link"  href="" routerLink="/absences">Gestion des absences</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link"  *ngIf="utilisateur.role == 'Administrateur' || utilisateur.role == 'Employé' || utilisateur.role == 'Manager'" href="" routerLink="/planning" >Planning des absences</a>
+            <a class="nav-link"  *ngIf="utilisateur.grade == 'Administrateur' || utilisateur.grade == 'Employé' || utilisateur.grade == 'Manager'" href="" routerLink="/planning" >Planning des absences</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" *ngIf="utilisateur.role == 'Manager'" href="" routerLink="/validation" >Validation demandes</a>
+            <a class="nav-link" *ngIf="utilisateur.grade == 'Manager'" href="" routerLink="/validation" >Validation demandes</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link"  *ngIf="utilisateur.role == 'Manager'" href="" routerLink="/synthetique" >Vues synthétiques</a>
+            <a class="nav-link"  *ngIf="utilisateur.grade == 'Manager'" href="" routerLink="/synthetique" >Vues synthétiques</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " *ngIf="utilisateur.role == 'Administrateur' || utilisateur.role == 'Employé' || utilisateur.role == 'Manager'" href="" routerLink="/feries" >Jours féries</a>
+            <a class="nav-link " *ngIf="utilisateur.grade == 'Administrateur' || utilisateur.grade == 'Employé' || utilisateur.grade == 'Manager'" href="" routerLink="/feries" >Jours féries</a>
           </li>
         </ul>
       </div>

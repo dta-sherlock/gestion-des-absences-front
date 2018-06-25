@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, CanActivateChild, Router} from '@angular/router';
 import {Observable} from 'rxjs/Observable';
-import {UTILISATEUR} from '../app.constante';
+import {UTILISATEUR} from '../app.utilisateur';
 
 @Injectable()
 export class UtilisateurGuard implements CanActivateChild {
@@ -13,8 +13,9 @@ export class UtilisateurGuard implements CanActivateChild {
   canActivateChild(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    if (UTILISATEUR.role == '') {
+    if (UTILISATEUR.grade.toString() === '') {
       this.router.navigate(['/connexion']);
+
     }
     else {
       return true;

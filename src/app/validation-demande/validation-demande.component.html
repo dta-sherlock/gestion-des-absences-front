@@ -1,3 +1,23 @@
-<p>
-  validation-demande works!
-</p>
+<h1>Validation des demandes</h1>
+<div class="container">
+  <h1>Gestion des absences</h1>
+  <table class="table table-striped centre">
+    <thead class="table-active">
+    <tr>
+      <th>Date de début</th>
+      <th>Date de fin</th>
+      <th>Type</th>
+      <th>Statut</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let absence of _absences">
+      <td> {{absence.dateDebut| date:'dd/MM/yyyy' }}</td>
+      <td> {{absence.dateFin| date:'dd/MM/yyyy' }}</td>
+      <td> {{absence.type}}</td>
+      <td> {{absence.statut}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

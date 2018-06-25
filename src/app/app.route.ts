@@ -5,12 +5,18 @@ import {
   PATH_ABCENCES,
   PATH_ABCENCES_AJOUT,
   PATH_ABCENCES_SHOW,
-  PATH_ABCENCES_UPDATE, PATH_FERIE,
-  PATH_HOME, PATH_LAYOUT, PATH_LOGIN, PATH_PLANNING, PATH_SYNTHETIQUE, PATH_VALIDATION
+  PATH_ABCENCES_UPDATE,
+  PATH_FERIE,
+  PATH_HOME,
+  PATH_LAYOUT,
+  PATH_LOGIN,
+  PATH_PLANNING,
+  PATH_SYNTHETIQUE,
+  PATH_VALIDATION
 } from './app.constRoute';
-import {AbsenceManagementAddComponent} from './absence-management-add/absence-management-add.component';
-import {AbsenceManagementUpdateComponent} from './absence-management-update/absence-management-update.component';
-import {AbsenceManagementShowComponent} from './absence-management-show/absence-management-show.component';
+import {AbsenceManagementAddComponent} from './absences-management/absence-management-add/absence-management-add.component';
+import {AbsenceManagementUpdateComponent} from './absences-management/absence-management-update/absence-management-update.component';
+import {AbsenceManagementShowComponent} from './absences-management/absence-management-show/absence-management-show.component';
 import {LoginComponent} from './login/login.component';
 import {LayoutComponent} from './layout/layout.component';
 import {PlanningComponent} from './planning/planning.component';
@@ -25,18 +31,14 @@ export const ROUTES: Routes = [
     path: PATH_LAYOUT, component: LayoutComponent,
     children: [
       {path: PATH_HOME, component: HomeComponent},
-      {
-        path: PATH_ABCENCES, component: AbsencesManagementComponent,
-        children: [
-          {path: PATH_ABCENCES_AJOUT, component: AbsenceManagementAddComponent},
-          {path: PATH_ABCENCES_UPDATE, component: AbsenceManagementUpdateComponent},
-          {path: PATH_ABCENCES_SHOW, component: AbsenceManagementShowComponent}
-        ]
-      },
-      {path:PATH_PLANNING,component:PlanningComponent},
-      {path:PATH_VALIDATION,component:ValidationDemandeComponent},
-      {path:PATH_FERIE,component:JoursFeriesComponent},
-      {path:PATH_SYNTHETIQUE,component:SynthetiqueComponent}
+      {path: PATH_ABCENCES, component: AbsencesManagementComponent},
+      {path: PATH_ABCENCES + '/' + PATH_ABCENCES_AJOUT, component: AbsenceManagementAddComponent},
+      {path: PATH_ABCENCES + '/' + PATH_ABCENCES_UPDATE, component: AbsenceManagementUpdateComponent},
+      {path: PATH_ABCENCES + '/' + PATH_ABCENCES_SHOW, component: AbsenceManagementShowComponent},
+      {path: PATH_PLANNING, component: PlanningComponent},
+      {path: PATH_VALIDATION, component: ValidationDemandeComponent},
+      {path: PATH_FERIE, component: JoursFeriesComponent},
+      {path: PATH_SYNTHETIQUE, component: SynthetiqueComponent}
     ]
   },
 

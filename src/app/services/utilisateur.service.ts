@@ -7,32 +7,26 @@ import * as sha from 'sha256';
 
 
 const API_BASE_URL = 'https://absences-back.cleverapps.io/api';
-export const UTILISATEUR: Utilisateur = new Utilisateur(0, '', '', '', '', '', 0, 0);
 
 @Injectable()
 export class UtilisateurService {
+  utilisateur: Utilisateur;
 
   constructor(private http: HttpClient, private router: Router) {
   }
 
+  getUtilisateurCourant() {
+    return this.utilisateur;
+  }
+
   initialisationRole(utilisateur: Utilisateur) {
-    UTILISATEUR.id = utilisateur.id;
-    UTILISATEUR.grade = utilisateur.grade;
-    UTILISATEUR.nom = utilisateur.nom;
-    UTILISATEUR.prenom = utilisateur.prenom;
-    UTILISATEUR.email = utilisateur.email;
-    UTILISATEUR.soldeConges = utilisateur.soldeConges;
-    UTILISATEUR.soldeRtt = utilisateur.soldeRtt;
+    this.utilisateur = new Utilisateur(utilisateur.id, utilisateur.email,
+      utilisateur.mdp, utilisateur.grade, utilisateur.nom,
+      utilisateur.prenom, utilisateur.soldeConges, utilisateur.soldeRtt);
   }
 
   reinitialisationRole() {
-    UTILISATEUR.id = 0;
-    UTILISATEUR.grade = '';
-    UTILISATEUR.nom = '';
-    UTILISATEUR.prenom = '';
-    UTILISATEUR.email = '';
-    UTILISATEUR.soldeConges = 0;
-    UTILISATEUR.soldeRtt = 0;
+    this.utilisateur = null;
   }
 
 

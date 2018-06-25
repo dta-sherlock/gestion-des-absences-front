@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {PATH_LOGIN} from '../app.constRoute';
-import {UTILISATEUR, UtilisateurService} from '../services/utilisateur.service';
+import { UtilisateurService} from '../services/utilisateur.service';
 import Utilisateur from '../model/utilisateur';
 
 
@@ -15,7 +15,7 @@ import Utilisateur from '../model/utilisateur';
 })
 export class LayoutComponent implements OnInit {
 
-  utilisateur: Utilisateur = UTILISATEUR;
+  utilisateur: Utilisateur = this.utilisateurService.getUtilisateurCourant();
 
 
   isNavbarCollapsed = true;

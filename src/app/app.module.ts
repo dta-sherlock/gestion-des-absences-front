@@ -1,14 +1,12 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-
 import {AppComponent} from './app.component';
 import {LoginComponent} from './login/login.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-
 import {HomeComponent} from './home/home.component';
+import {DemandeAbsenceComponent} from './demande-absence/demande-absence.component';
 import {AbsencesManagementComponent} from './absences-management/absences-management.component';
-import {AbsenceManagementAddComponent} from './absences-management/absence-management-add/absence-management-add.component';
 import {AbsenceManagementUpdateComponent} from './absences-management/absence-management-update/absence-management-update.component';
 import {RouterModule} from '@angular/router';
 import {ROUTES} from './app.route';
@@ -28,8 +26,8 @@ import {HttpClientModule} from '@angular/common/http';
   declarations: [
     AppComponent,
     HomeComponent,
+    DemandeAbsenceComponent,
     AbsencesManagementComponent,
-    AbsenceManagementAddComponent,
     AbsenceManagementUpdateComponent,
     AbsenceManagementShowComponent,
     LoginComponent,

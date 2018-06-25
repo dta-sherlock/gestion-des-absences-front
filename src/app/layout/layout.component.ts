@@ -15,7 +15,7 @@ import Utilisateur from '../model/utilisateur';
 })
 export class LayoutComponent implements OnInit {
 
-  utilisateur: Utilisateur = this.utilisateurService.getUtilisateurCourant();
+  utilisateur: Utilisateur = UtilisateurService.utilisateur;
 
 
   isNavbarCollapsed = true;

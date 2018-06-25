@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
       if (u != null) {
         this.utilisateurService.initialisationRole(u);
         this.authentificationValide = true;
-        this.router.navigate[PATH_LAYOUT];
+        this.router.navigate([PATH_LAYOUT]);
       }
       else {
         this.authentificationValide = false;

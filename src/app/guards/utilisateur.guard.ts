@@ -6,18 +6,20 @@ import {UtilisateurService} from '../services/utilisateur.service';
 @Injectable()
 export class UtilisateurGuard implements CanActivateChild {
 
-  constructor(private router: Router, private utilisateurService: UtilisateurService) {
+  constructor(private router: Router) {
   }
 
 
   canActivateChild(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    if (this.utilisateurService.getUtilisateurCourant() === null) {
-      return true;
+    if (UtilisateurService.utilisateur === null) {
+      this.router.navigate(['/connexion']);
+      return false;
     }
     else {
-      this.router.navigate(['/connexion']);
+
+      return true;
     }
 
   }

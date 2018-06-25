@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core';
 import Utilisateur from '../model/utilisateur';
 import {Observable} from 'rxjs/Observable';
 import {HttpClient} from '@angular/common/http';
-import {Router} from '@angular/router';
 import * as sha from 'sha256';
 
 
@@ -10,23 +9,17 @@ const API_BASE_URL = 'https://absences-back.cleverapps.io/api';
 
 @Injectable()
 export class UtilisateurService {
-  utilisateur: Utilisateur;
+  static utilisateur: Utilisateur;
 
-  constructor(private http: HttpClient, private router: Router) {
-  }
-
-  getUtilisateurCourant() {
-    return this.utilisateur;
+  constructor(private http: HttpClient) {
   }
 
   initialisationRole(utilisateur: Utilisateur) {
-    this.utilisateur = new Utilisateur(utilisateur.id, utilisateur.email,
-      utilisateur.mdp, utilisateur.grade, utilisateur.nom,
-      utilisateur.prenom, utilisateur.soldeConges, utilisateur.soldeRtt);
+    UtilisateurService.utilisateur = utilisateur;
   }
 
   reinitialisationRole() {
-    this.utilisateur = null;
+    UtilisateurService.utilisateur = null;
   }
 
 

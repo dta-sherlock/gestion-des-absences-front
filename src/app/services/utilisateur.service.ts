@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core';
 import Utilisateur from '../model/utilisateur';
 import {Observable} from 'rxjs/Observable';
 import {HttpClient} from '@angular/common/http';
-import {Router} from '@angular/router';
 import * as sha from 'sha256';
 
 const API_BASE_URL = 'https://absences-back.cleverapps.io/api';
@@ -11,8 +10,8 @@ const API_BASE_URL = 'https://absences-back.cleverapps.io/api';
 export class UtilisateurService {
   static utilisateur: Utilisateur;
 
-  constructor(private http: HttpClient, private router: Router) {
-  }
+  constructor(private http: HttpClient) {
+ }
 
   initialisationRole(utilisateur: Utilisateur) {
     UtilisateurService.utilisateur = utilisateur;

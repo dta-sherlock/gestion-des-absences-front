@@ -47,4 +47,6 @@ export class UtilisateurService {
   modifUtilisateur(utilisateur: Utilisateur) {
     return this.http.put<Utilisateur>(`${API_BASE_URL}/utilisateurs/${utilisateur.id}`, utilisateur);
   }
+
 }
+

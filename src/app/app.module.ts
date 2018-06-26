@@ -15,12 +15,15 @@ import {ROUTES} from './app.route';
 import {AbsenceManagementShowComponent} from './absence-management-show/absence-management-show.component';
 import {AngularFontAwesomeModule} from 'angular-font-awesome';
 import {LayoutComponent} from './layout/layout.component';
+import { PlanningComponent } from './planning/planning.component';
+import { ValidationDemandeComponent } from './validation-demande/validation-demande.component';
+import { SynthetiqueComponent } from './synthetique/synthetique.component';
+import { JoursFeriesComponent } from './jours-feries/jours-feries.component';
+import {HttpClientModule} from '@angular/common/http';
+import {AbsencesApi} from './services/absencesApi';
+import {AbsenceService} from './services/AbsenceService';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {UtilisateurGuard} from './guards/utilisateur.guard';
-import {PlanningComponent} from './planning/planning.component';
-import {ValidationDemandeComponent} from './validation-demande/validation-demande.component';
-import {SynthetiqueComponent} from './synthetique/synthetique.component';
-import {JoursFeriesComponent} from './jours-feries/jours-feries.component';
-import { HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
@@ -37,7 +40,6 @@ import { HttpClientModule} from '@angular/common/http';
     ValidationDemandeComponent,
     SynthetiqueComponent,
     JoursFeriesComponent,
-
   ],
   imports: [
     BrowserModule,
@@ -46,11 +48,10 @@ import { HttpClientModule} from '@angular/common/http';
     AngularFontAwesomeModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
-  providers: [
+  providers: [AbsencesApi, AbsenceService,
     UtilisateurGuard,
-
   ],
   bootstrap: [AppComponent]
 })

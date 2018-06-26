@@ -4,7 +4,6 @@ import {PATH_LOGIN} from '../app.constRoute';
 import { UtilisateurService} from '../services/utilisateur.service';
 import Utilisateur from '../model/utilisateur';
 
-
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
@@ -14,6 +13,7 @@ import Utilisateur from '../model/utilisateur';
   ]
 })
 export class LayoutComponent implements OnInit {
+
 
   utilisateur: Utilisateur = UtilisateurService.utilisateur;
 

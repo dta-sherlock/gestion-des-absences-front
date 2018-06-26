@@ -1,25 +1,51 @@
 import {Component, OnInit} from '@angular/core';
 import {Absence} from '../model/absence';
-import {typeEnum} from '../model/typeEnum';
-import {statut} from '../model/EumStatu';
-import {CRUD_Enum} from '../model/CRUD_Enum';
+import Utilisateur from '../model/utilisateur';
+import {UTILISATEUR} from '../app.constante';
+import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {AbsenceService} from '../services/AbsenceService';
+import {HttpClient} from '@angular/common/http';
+
 
 @Component({
   selector: 'app-absences-management',
   templateUrl: './absences-management.component.html',
   styleUrls: ['./absences-management.component.css'],
-
 })
 export class AbsencesManagementComponent implements OnInit {
-absences:Array<Absence>=[];
-  constructor() { }
 
-  ngOnInit() {
-    this.absences=[
-      new Absence( new Date('6/15/15'), new Date ('7/15/15'),typeEnum.CONGE_PAYE,statut.INITIALE,CRUD_Enum.DELETE),
-      new Absence(new Date('8/15/15'),new Date ('8/20/16'),typeEnum.CONGE_SANS_SOLDE,statut.EN_ATTENTE8_VALIDATION,CRUD_Enum.UPDATE),
-      new Absence(new Date('9/15/16'),new Date ('10/15/16'),typeEnum.RTT,statut.REJETEE,CRUD_Enum.READ)
-    ]
+  closeResult: string;
+  private _absences: Array<Absence>;
+  utilisateur: Utilisateur = UTILISATEUR;
+  rtt: number;
+  congepaye: number;
+
+  constructor(private modalService: NgbModal, private service: AbsenceService, private  http: HttpClient) {
   }
 
+  open(content) {
+    this.modalService.open(content).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
+  }
+
+  ngOnInit() {
+    this.rtt = this.utilisateur.soldeRTT;
+    this.congepaye = this.utilisateur.soldeConges;
+    this.service.getAbsences().subscribe(abs => {
+      this._absences = abs;
+    });
+  }
 }

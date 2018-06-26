@@ -6,6 +6,7 @@ import {UtilisateurService} from '../services/utilisateur.service';
 import {PATH_LAYOUT} from '../app.constRoute';
 
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -16,6 +17,7 @@ import {PATH_LAYOUT} from '../app.constRoute';
   ]
 })
 export class LoginComponent implements OnInit {
+
   utilisateur: Utilisateur;
   mdpCtrl: FormControl;
   emailCtrl: FormControl;
@@ -45,11 +47,8 @@ export class LoginComponent implements OnInit {
 
     });
   }
-
   ngOnInit() {
-
     this.utilisateur = new Utilisateur(0, '', '', '', '', '', 0, 0);
-
   }
 
 }

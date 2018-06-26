@@ -34,6 +34,7 @@ export class LoginComponent implements OnInit {
 
   connexion() {
     this.utilisateurService.getUtilisateurByEmailAndMdp(this.utilisateur).toPromise().then(u => {
+
       if (u != null) {
         this.utilisateurService.initialisationRole(u);
         this.authentificationValide = true;
@@ -47,7 +48,6 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-
     this.utilisateur = new Utilisateur(0, '', '', '', '', '', 0, 0);
 
   }

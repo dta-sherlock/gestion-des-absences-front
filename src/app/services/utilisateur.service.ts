@@ -4,7 +4,6 @@ import {Observable} from 'rxjs/Observable';
 import {HttpClient} from '@angular/common/http';
 import * as sha from 'sha256';
 
-
 const API_BASE_URL = 'https://absences-back.cleverapps.io/api';
 
 @Injectable()
@@ -12,7 +11,7 @@ export class UtilisateurService {
   static utilisateur: Utilisateur;
 
   constructor(private http: HttpClient) {
-  }
+ }
 
   initialisationRole(utilisateur: Utilisateur) {
     UtilisateurService.utilisateur = utilisateur;
@@ -22,10 +21,8 @@ export class UtilisateurService {
     UtilisateurService.utilisateur = null;
   }
 
-
   getUtilisateurByEmailAndMdp(utilisateur: Utilisateur) {
     return this.http.get<Utilisateur>(`${API_BASE_URL}/utilisateurs?email=${utilisateur.email}&mdp=${sha(utilisateur.mdp)}`);
-
   }
 
   getUtilisateurs(): Observable<Utilisateur[]> {

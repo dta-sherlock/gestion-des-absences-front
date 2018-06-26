@@ -1,9 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {PATH_LOGIN} from '../app.constRoute';
-import { UtilisateurService} from '../services/utilisateur.service';
+import {UtilisateurService} from '../services/utilisateur.service';
 import Utilisateur from '../model/utilisateur';
-
 
 @Component({
   selector: 'app-layout',
@@ -31,6 +30,5 @@ export class LayoutComponent implements OnInit {
     this.router.navigate([PATH_LOGIN]);
 
   }
-
 
 }

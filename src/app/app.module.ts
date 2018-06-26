@@ -1,12 +1,12 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
-import { AppComponent } from './app.component';
+import {AppComponent} from './app.component';
 import {LoginComponent} from './login/login.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
-import { HomeComponent } from './home/home.component';
+import {HomeComponent} from './home/home.component';
 import {AbsencesManagementComponent} from './absences-management/absences-management.component';
 import {AbsenceManagementAddComponent} from './absence-management-add/absence-management-add.component';
 import {AbsenceManagementUpdateComponent} from './absence-management-update/absence-management-update.component';
@@ -23,6 +23,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {AbsencesApi} from './services/absencesApi';
 import {AbsenceService} from './services/AbsenceService';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {UtilisateurGuard} from './guards/utilisateur.guard';
 
 
 @NgModule({
@@ -38,7 +39,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     PlanningComponent,
     ValidationDemandeComponent,
     SynthetiqueComponent,
-    JoursFeriesComponent
+    JoursFeriesComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,8 +50,10 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [AbsencesApi, AbsenceService
+  providers: [AbsencesApi, AbsenceService,
+    UtilisateurGuard,
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

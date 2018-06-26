@@ -70,8 +70,7 @@
   <div class="form-group row">
     <div class="col mr-2">
       <div class="row justify-content-end">
-        <input (onclick)=retourVisualisationDemandes() class="btn btn-danger align-self-end" type="button"
-               value="Annuler">
+        <input class="btn btn-danger align-self-end" type="button" value="Annuler" [routerLink]="['/absences']">
       </div>
     </div>
     <div class="col">
@@ -82,8 +81,6 @@
   </div>
 </form>
 
-<hr/>
-<pre>Model: {{ model | json}}</pre>
 
 <ng-template #customDay let-date="date" let-currentMonth="currentMonth" let-selected="selected" let-disabled="disabled"
              let-focused="focused">

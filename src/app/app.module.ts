@@ -13,13 +13,16 @@ import {ROUTES} from './app.route';
 import {AbsenceManagementShowComponent} from './absences-management/absence-management-show/absence-management-show.component';
 import {AngularFontAwesomeModule} from 'angular-font-awesome';
 import {LayoutComponent} from './layout/layout.component';
+import {AbsenceService} from './services/AbsenceService';
+import {AbsencesApi} from './services/absencesApi';
+import {UtilisateurGuard} from './guards/utilisateur.guard';
 import {PlanningComponent} from './planning/planning.component';
 import {ValidationDemandeComponent} from './validation-demande/validation-demande.component';
 import {SynthetiqueComponent} from './synthetique/synthetique.component';
 import {JoursFeriesComponent} from './jours-feries/jours-feries.component';
-import {AbsenceService} from './services/AbsenceService';
-import {AbsencesApi} from './services/absencesApi';
 import {HttpClientModule} from '@angular/common/http';
+import {UtilisateurService} from './services/utilisateur.service';
+import {CounterComponent} from './counter/counter.component';
 
 
 @NgModule({
@@ -30,6 +33,7 @@ import {HttpClientModule} from '@angular/common/http';
     AbsencesManagementComponent,
     AbsenceManagementUpdateComponent,
     AbsenceManagementShowComponent,
+    CounterComponent,
     LoginComponent,
     LayoutComponent,
     PlanningComponent,
@@ -46,7 +50,11 @@ import {HttpClientModule} from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [AbsenceService, AbsencesApi
+  providers: [
+    AbsenceService,
+    AbsencesApi,
+    UtilisateurGuard,
+    UtilisateurService
   ],
   bootstrap: [AppComponent]
 })

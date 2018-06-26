@@ -19,6 +19,10 @@ import { PlanningComponent } from './planning/planning.component';
 import { ValidationDemandeComponent } from './validation-demande/validation-demande.component';
 import { SynthetiqueComponent } from './synthetique/synthetique.component';
 import { JoursFeriesComponent } from './jours-feries/jours-feries.component';
+import {HttpClientModule} from '@angular/common/http';
+import {AbsencesApi} from './services/absencesApi';
+import {AbsenceService} from './services/AbsenceService';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -42,9 +46,10 @@ import { JoursFeriesComponent } from './jours-feries/jours-feries.component';
     RouterModule.forRoot(ROUTES),
     AngularFontAwesomeModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
-  providers: [
+  providers: [AbsencesApi, AbsenceService
   ],
   bootstrap: [AppComponent]
 })

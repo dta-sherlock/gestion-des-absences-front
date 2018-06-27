@@ -2,12 +2,11 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import {Absence} from '../model/absence';
-import {AbsencesApi} from './absencesApi';
 import {API_ABSENCES, API_BASE_URL} from './constServices';
 
 @Injectable()
 export class AbsenceService {
-  constructor(private api: AbsencesApi, private http: HttpClient) {
+  constructor(private http: HttpClient) {
   }
 
   getAbsences(): Observable<Array<Absence>> {

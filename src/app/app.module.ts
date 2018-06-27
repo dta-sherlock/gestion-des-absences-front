@@ -19,7 +19,6 @@ import {ValidationDemandeComponent} from './validation-demande/validation-demand
 import {SynthetiqueComponent} from './synthetique/synthetique.component';
 import {JoursFeriesComponent} from './jours-feries/jours-feries.component';
 import {AbsenceService} from './services/AbsenceService';
-import {AbsencesApi} from './services/absencesApi';
 import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
@@ -47,7 +46,6 @@ import {HttpClientModule} from '@angular/common/http';
     HttpClientModule
   ],
   providers: [AbsenceService,
-    AbsencesApi,
     UtilisateurGuard
      ],
   bootstrap: [AppComponent]

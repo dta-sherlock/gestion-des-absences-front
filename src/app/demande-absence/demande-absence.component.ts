@@ -5,6 +5,7 @@ import {isGreaterThanTodayValidator} from "../validators/validators";
 import {DemandeAbsence} from "../Model/demande";
 import {Subject} from 'rxjs';
 import {debounceTime} from 'rxjs/operators';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-demande-absence',
@@ -16,9 +17,6 @@ import {debounceTime} from 'rxjs/operators';
 })
 export class DemandeAbsenceComponent implements OnInit {
 
-  retourVisualisationDemandes() {
-
-  }
   private _success = new Subject<string>();
   successMessage: string;
   dateDebCtrl: FormControl;
@@ -28,15 +26,14 @@ export class DemandeAbsenceComponent implements OnInit {
   absence: DemandeAbsence = new DemandeAbsence(null,null,"","");
 
   model: NgbDateStruct;
+
+  //Fonction utilisée pour griser les jours passés (jour courant inclus)
   avantDate(date: NgbDateStruct) {
-    let date1= new Date();
-    let dateDuJour: NgbDateStruct = { day: date1.getDate(), month: date1.getMonth()+1, year: date1.getFullYear()}
-    if (date.year*10000+date.month*100+date.day <= dateDuJour.year*10000+dateDuJour.month*100+dateDuJour.day) {
-      return true;
-    } else {
-      return false
-    }
+    let dateFormat = new Date(date.year, date.month - 1, date.day);
+
+    return moment().isAfter(dateFormat);
   }
+
 
   handleSubmit() {
     console.log(this.absence);

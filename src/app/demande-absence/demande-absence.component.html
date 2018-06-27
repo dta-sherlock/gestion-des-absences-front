@@ -51,7 +51,6 @@
   <div class="form-group row justify-content-center">
     <label for="typeConges" class="col-form-label mr-2">Type de congé</label>
     <select class="custom-select my-1 mr-sm-2" id="typeConges" style="width: 15rem" [(ngModel)]="absence.type" [ngModelOptions]="{standalone: true}">
-      <option selected>(Type de congé)</option>
       <option>Congé payé</option>
       <option>RTT</option>
       <option>Congé sans solde</option>
@@ -66,7 +65,7 @@
   <div class="form-group row">
     <div class="col mr-2">
       <div class="row justify-content-end">
-        <input (onclick)=retourVisualisationDemandes() class="btn btn-danger align-self-end"type="button" value="Annuler" [routerLink]="['/absences']">
+        <input class="btn btn-danger align-self-end"type="button" value="Annuler" [routerLink]="['/absences']">
       </div>
     </div>
     <div class="col">
@@ -79,7 +78,7 @@
 <ngb-alert *ngIf="successMessage" type="success" (close)="successMessage = null">{{ successMessage }}</ngb-alert>
 
 <ng-template #customDay let-date="date" let-currentMonth="currentMonth" let-selected="selected" let-disabled="disabled" let-focused="focused">
-  <span class="custom-day" [class.hidden]="date.month !== currentMonth" [class.nonCliquable]="avantDate(date)">
+  <span class="custom-day" [class.hidden]="date.month !== currentMonth" [class.grise]="avantDate(date)">
     {{ date.day }}
   </span>
 </ng-template>

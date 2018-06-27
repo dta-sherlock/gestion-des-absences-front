@@ -21,6 +21,7 @@ import {ValidationDemandeComponent} from './validation-demande/validation-demand
 import {SynthetiqueComponent} from './synthetique/synthetique.component';
 import {JoursFeriesComponent} from './jours-feries/jours-feries.component';
 import { HttpClientModule} from '@angular/common/http';
+import {CreationJoursFeriesComponent} from './creation-jours-feries/creation-jours-feries.component';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { HttpClientModule} from '@angular/common/http';
     ValidationDemandeComponent,
     SynthetiqueComponent,
     JoursFeriesComponent,
+    CreationJoursFeriesComponent,
 
   ],
   imports: [

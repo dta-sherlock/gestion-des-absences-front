@@ -1,10 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Absence} from '../model/absence';
-import Utilisateur from '../model/utilisateur';
-import {UTILISATEUR} from '../app.constante';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {AbsenceService} from '../services/AbsenceService';
-import {HttpClient} from '@angular/common/http';
 
 
 @Component({
@@ -16,11 +13,8 @@ export class AbsencesManagementComponent implements OnInit {
 
   closeResult: string;
   absences: Array<Absence>;
-  utilisateur: Utilisateur = UTILISATEUR;
-  rtt: number;
-  congepaye: number;
 
-  constructor(private modalService: NgbModal, private service: AbsenceService, private  http: HttpClient) {
+  constructor(private modalService: NgbModal, private service: AbsenceService) {
   }
 
   open(content) {
@@ -46,8 +40,6 @@ export class AbsencesManagementComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.rtt = this.utilisateur.soldeRtt;
-    this.congepaye = this.utilisateur.soldeConges;
     this.service.getAbsences().subscribe(abs => {
       this.absences = abs;
     });

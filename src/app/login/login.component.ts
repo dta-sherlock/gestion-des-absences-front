@@ -45,12 +45,8 @@ export class LoginComponent implements OnInit {
 
     });
   }
-
   ngOnInit() {
-
     this.utilisateur = new Utilisateur(0, '', '', '', '', '', 0, 0);
-
   }
-
 }
 

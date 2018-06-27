@@ -18,6 +18,7 @@ import {PlanningComponent} from './planning/planning.component';
 import {ValidationDemandeComponent} from './validation-demande/validation-demande.component';
 import {SynthetiqueComponent} from './synthetique/synthetique.component';
 import {JoursFeriesComponent} from './jours-feries/jours-feries.component';
+import {CreationJoursFeriesComponent} from './creation-jours-feries/creation-jours-feries.component';
 import {AbsenceService} from './services/AbsenceService';
 import {HttpClientModule} from '@angular/common/http';
 import {CounterComponent} from './counter/counter.component';
@@ -36,6 +37,7 @@ import {CounterComponent} from './counter/counter.component';
     ValidationDemandeComponent,
     SynthetiqueComponent,
     JoursFeriesComponent,
+    CreationJoursFeriesComponent,
     CounterComponent
   ],
   imports: [

@@ -3,9 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import {Absence} from '../model/absence';
 import {AbsencesApi} from './absencesApi';
-
-const API_BASE_URL: string = 'https://absences-back.cleverapps.io/api/';
-const API_ABSENCES: string = 'absences';
+import {API_ABSENCES, API_BASE_URL} from './constServices';
 
 @Injectable()
 export class AbsenceService {

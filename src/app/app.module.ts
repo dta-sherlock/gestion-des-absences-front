@@ -1,5 +1,5 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {AppComponent} from './app.component';
 import {LoginComponent} from './login/login.component';
@@ -13,6 +13,7 @@ import {ROUTES} from './app.route';
 import {AbsenceManagementShowComponent} from './absences-management/absence-management-show/absence-management-show.component';
 import {AngularFontAwesomeModule} from 'angular-font-awesome';
 import {LayoutComponent} from './layout/layout.component';
+import {UtilisateurGuard} from './guards/utilisateur.guard';
 import {PlanningComponent} from './planning/planning.component';
 import {ValidationDemandeComponent} from './validation-demande/validation-demande.component';
 import {SynthetiqueComponent} from './synthetique/synthetique.component';
@@ -20,7 +21,6 @@ import {JoursFeriesComponent} from './jours-feries/jours-feries.component';
 import {AbsenceService} from './services/AbsenceService';
 import {AbsencesApi} from './services/absencesApi';
 import {HttpClientModule} from '@angular/common/http';
-import {UtilisateurGuard} from './guards/utilisateur.guard';
 
 @NgModule({
   declarations: [
@@ -52,4 +52,5 @@ import {UtilisateurGuard} from './guards/utilisateur.guard';
      ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

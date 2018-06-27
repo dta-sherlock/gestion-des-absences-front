@@ -46,7 +46,7 @@ export class AbsencesManagementComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.rtt = this.utilisateur.soldeRTT;
+    this.rtt = this.utilisateur.soldeRtt;
     this.congepaye = this.utilisateur.soldeConges;
     this.service.getAbsences().subscribe(abs => {
       this.absences = abs;

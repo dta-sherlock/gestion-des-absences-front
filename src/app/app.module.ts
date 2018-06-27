@@ -20,6 +20,7 @@ import {SynthetiqueComponent} from './synthetique/synthetique.component';
 import {JoursFeriesComponent} from './jours-feries/jours-feries.component';
 import {AbsenceService} from './services/AbsenceService';
 import {HttpClientModule} from '@angular/common/http';
+import {CounterComponent} from './counter/counter.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import {HttpClientModule} from '@angular/common/http';
     PlanningComponent,
     ValidationDemandeComponent,
     SynthetiqueComponent,
-    JoursFeriesComponent
+    JoursFeriesComponent,
+    CounterComponent
   ],
   imports: [
     BrowserModule,

@@ -20,7 +20,8 @@ import {PlanningComponent} from './planning/planning.component';
 import {ValidationDemandeComponent} from './validation-demande/validation-demande.component';
 import {SynthetiqueComponent} from './synthetique/synthetique.component';
 import {JoursFeriesComponent} from './jours-feries/jours-feries.component';
-import { HttpClientModule} from '@angular/common/http';
+import {HttpClientModule} from '@angular/common/http';
+import {CounterComponent} from './counter/counter.component';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { HttpClientModule} from '@angular/common/http';
     ValidationDemandeComponent,
     SynthetiqueComponent,
     JoursFeriesComponent,
+    CounterComponent,
 
   ],
   imports: [

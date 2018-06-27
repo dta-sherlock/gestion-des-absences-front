@@ -21,6 +21,7 @@ import {JoursFeriesComponent} from './jours-feries/jours-feries.component';
 import {AbsenceService} from './services/AbsenceService';
 import {HttpClientModule} from '@angular/common/http';
 import {CounterComponent} from './counter/counter.component';
+import {UtilisateurService} from './services/utilisateur.service';
 
 @NgModule({
   declarations: [

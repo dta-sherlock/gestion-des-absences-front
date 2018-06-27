@@ -21,6 +21,7 @@ import {ValidationDemandeComponent} from './validation-demande/validation-demand
 import {SynthetiqueComponent} from './synthetique/synthetique.component';
 import {JoursFeriesComponent} from './jours-feries/jours-feries.component';
 import { HttpClientModule} from '@angular/common/http';
+import {UtilisateurService} from './services/utilisateur.service';
 
 
 @NgModule({
@@ -50,6 +51,7 @@ import { HttpClientModule} from '@angular/common/http';
   ],
   providers: [
     UtilisateurGuard,
+    UtilisateurService
 
   ],
   bootstrap: [AppComponent]

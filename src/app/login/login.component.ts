@@ -44,12 +44,10 @@ export class LoginComponent implements OnInit {
 
     });
   }
-
   ngOnInit() {
 
-    this.utilisateur = new Utilisateur(0, 'manager@gmail.com', 'manager', '', '', '', 0, 0);
+    this.utilisateur = new Utilisateur(0, '', '', '', '', '', 0, 0);
 
   }
-
 }
 

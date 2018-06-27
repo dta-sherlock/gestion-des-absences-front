@@ -14,20 +14,16 @@ export class UtilisateurService {
   constructor(private http: HttpClient, private router: Router) {
   }
 
+
   initialisationRole(utilisateur: Utilisateur) {
     UtilisateurService.utilisateur = utilisateur;
   }
-
   reinitialisationRole() {
     UtilisateurService.utilisateur = null;
   }
-
-
   getUtilisateurByEmailAndMdp(utilisateur: Utilisateur) {
     return this.http.get<Utilisateur>(`${API_BASE_URL}${API_UTILISATEUR}?email=${utilisateur.email}&mdp=${sha(utilisateur.mdp)}`);
-
   }
-
   getUtilisateurs(): Observable<Utilisateur[]> {
     return this.http.get<Utilisateur[]>(`${API_BASE_URL}${API_UTILISATEUR}`);
   }

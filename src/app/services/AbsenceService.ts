@@ -22,7 +22,7 @@ export class AbsenceService {
   }
 
   updateAbsence(absence: Absence) {
-    return this.http.put(`${API_BASE_URL}${API_ABSENCES}/${absence}`, absence);
+    return this.http.post(`${API_BASE_URL}${API_ABSENCES}`, absence);
   }
 
 

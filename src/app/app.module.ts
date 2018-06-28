@@ -24,6 +24,7 @@ import {UtilisateurService} from './services/utilisateur.service';
 import {DemandeAbsenceComponent} from './demande-absence/demande-absence.component';
 import {CounterComponent} from './counter/counter.component';
 import {AbsenceService} from './services/AbsenceService';
+import {CreationFerieRttComponent} from './creation-ferie-rtt/creation-ferie-rtt.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import {AbsenceService} from './services/AbsenceService';
     ValidationDemandeComponent,
     SynthetiqueComponent,
     JoursFeriesComponent,
-    CounterComponent
+    CounterComponent,
+    CreationFerieRttComponent
   ],
   imports: [
     BrowserModule,

@@ -2,15 +2,13 @@
 <br/>
 <br/>
 <form class="container justify-content-center" (ngSubmit)="handleSubmit()" [formGroup]="userForm" method="post">
-
   <div class="form-group row justify-content-center">
-
-
-    <label for="dateDebut" class="col-form-label mr-2" >Date de début</label>
+    <label for="dateDebut" class="col-form-label mr-2">Date de début</label>
     <div class="col-input-group">
       <div class="input-group">
         <input class="form-control" placeholder="yyyy-mm-dd"
-               name="dp"  ngbDatepicker [dayTemplate]="customDay" #d="ngbDatepicker" id="dateDebut" [formControl]="dateDebCtrl" [(ngModel)]="absence.dateDeb">
+               name="dp" ngbDatepicker [dayTemplate]="customDay" #d="ngbDatepicker" id="dateDebut"
+               [formControl]="dateDebCtrl" [(ngModel)]="absence.dateDeb">
         <div class="input-group-append">
           <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
             <img src="../../assets/img/calendar.png" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
@@ -32,7 +30,8 @@
     <div class="col-input-group">
       <div class="input-group">
         <input class="form-control" placeholder="yyyy-mm-dd"
-               name="dp"  ngbDatepicker [dayTemplate]="customDay" #e="ngbDatepicker" id="dateFin" [formControl]="dateFinCtrl" [(ngModel)]="absence.dateFin">
+               name="dp" ngbDatepicker [dayTemplate]="customDay" #e="ngbDatepicker" id="dateFin"
+               [formControl]="dateFinCtrl" [(ngModel)]="absence.dateFin">
         <div class="input-group-append">
           <button class="btn btn-outline-secondary" (click)="e.toggle()" type="button">
             <img src="../../assets/img/calendar.png" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
@@ -50,7 +49,8 @@
 
   <div class="form-group row justify-content-center">
     <label for="typeConges" class="col-form-label mr-2">Type de congé</label>
-    <select class="custom-select my-1 mr-sm-2" id="typeConges" style="width: 15rem" [(ngModel)]="absence.type" [ngModelOptions]="{standalone: true}">
+    <select class="custom-select my-1 mr-sm-2" id="typeConges" style="width: 15rem" [(ngModel)]="absence.type"
+            [ngModelOptions]="{standalone: true}">
       <option>Congé payé</option>
       <option>RTT</option>
       <option>Congé sans solde</option>
@@ -59,7 +59,8 @@
 
   <div class="form-group row justify-content-center">
     <label for="motif" class="col-form-label mr-2">Motif</label>
-    <textarea class="col-form-control" id="motif" rows="4" style="width: 25rem" [(ngModel)]="absence.motif" [ngModelOptions]="{standalone: true}"></textarea>
+    <textarea class="col-form-control" id="motif" rows="4" style="width: 25rem" [(ngModel)]="absence.motif"
+              [ngModelOptions]="{standalone: true}"></textarea>
   </div>
 
   <div class="form-group row">
@@ -75,9 +76,10 @@
     </div>
   </div>
 </form>
-<ngb-alert *ngIf="successMessage" type="success" (close)="successMessage = null">{{ successMessage }}</ngb-alert>
 
-<ng-template #customDay let-date="date" let-currentMonth="currentMonth" let-selected="selected" let-disabled="disabled" let-focused="focused">
+<ngb-alert *ngIf="successMessage" type="success" (close)="successMessage = null">{{ successMessage }}</ngb-alert>
+<ng-template #customDay let-date="date" let-currentMonth="currentMonth" let-selected="selected" let-disabled="disabled"
+             let-focused="focused">
   <span class="custom-day" [class.hidden]="date.month !== currentMonth" [class.grise]="avantDate(date)">
     {{ date.day }}
   </span>

@@ -9,7 +9,6 @@ import Utilisateur from '../model/utilisateur';
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.css'],
   providers: [
-    UtilisateurService
   ]
 })
 export class LayoutComponent implements OnInit {
@@ -18,6 +17,7 @@ export class LayoutComponent implements OnInit {
   isNavbarCollapsed = true;
 
   constructor(private router: Router, private utilisateurService: UtilisateurService) {
+
   }
 
   ngOnInit() {

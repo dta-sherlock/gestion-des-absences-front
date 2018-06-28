@@ -2,11 +2,11 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
-import { AppComponent } from './app.component';
+import {AppComponent} from './app.component';
 import {LoginComponent} from './login/login.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
-import { HomeComponent } from './home/home.component';
+import {HomeComponent} from './home/home.component';
 import {AbsencesManagementComponent} from './absences-management/absences-management.component';
 import {AbsenceManagementUpdateComponent} from './absences-management/absence-management-update/absence-management-update.component';
 import {RouterModule} from '@angular/router';
@@ -25,7 +25,7 @@ import {UtilisateurService} from './services/utilisateur.service';
 import {DemandeAbsenceComponent} from './demande-absence/demande-absence.component';
 import {CounterComponent} from './counter/counter.component';
 import {AbsenceService} from './services/AbsenceService';
-import {DatePipe} from "@angular/common";
+import {CreationFerieRttComponent} from './creation-ferie-rtt/creation-ferie-rtt.component';
 
 
 @NgModule({
@@ -42,7 +42,8 @@ import {DatePipe} from "@angular/common";
     ValidationDemandeComponent,
     SynthetiqueComponent,
     JoursFeriesComponent,
-    CounterComponent
+    CounterComponent,
+    CreationFerieRttComponent
   ],
   imports: [
     BrowserModule,
@@ -56,9 +57,7 @@ import {DatePipe} from "@angular/common";
   providers: [
     AbsenceService,
     UtilisateurGuard,
-    UtilisateurService,
-    DatePipe
-
+    UtilisateurService
   ],
   bootstrap: [AppComponent]
 })

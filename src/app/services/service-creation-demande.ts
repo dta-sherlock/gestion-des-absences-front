@@ -1,13 +1,14 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import {DemandeAbsence} from "../Model/demande";
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {DemandeAbsence} from '../Model/demande';
 
-const API_BASE_URL: string='http://localhost:4200/';
+const API_BASE_URL: string = 'http://localhost:4200/';
 
 @Injectable()
 export class ApiServiceService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
   sampleHeader() {
     const headers = new HttpHeaders()

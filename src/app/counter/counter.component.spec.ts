@@ -1,20 +1,20 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {DemandeAbsenceComponent} from './demande-absence.component';
+import {CounterComponent} from './counter.component';
 
-describe('DemandeAbsenceComponent', () => {
-  let component: DemandeAbsenceComponent;
-  let fixture: ComponentFixture<DemandeAbsenceComponent>;
+describe('CounterComponent', () => {
+  let component: CounterComponent;
+  let fixture: ComponentFixture<CounterComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [DemandeAbsenceComponent]
+      declarations: [CounterComponent]
     })
       .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DemandeAbsenceComponent);
+    fixture = TestBed.createComponent(CounterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -24,6 +24,7 @@ import {ValidationDemandeComponent} from './validation-demande/validation-demand
 import {JoursFeriesComponent} from './jours-feries/jours-feries.component';
 import {SynthetiqueComponent} from './synthetique/synthetique.component';
 import {DemandeAbsenceComponent} from './demande-absence/demande-absence.component';
+import {CounterComponent} from './counter/counter.component';
 import {CreationFerieRttComponent} from './creation-ferie-rtt/creation-ferie-rtt.component';
 
 
@@ -34,11 +35,21 @@ export const ROUTES: Routes = [
     canActivateChild: [UtilisateurGuard],
     children: [
       {path: PATH_HOME, component: HomeComponent},
-      {path: PATH_ABCENCES, component: AbsencesManagementComponent},
+      {
+        path: PATH_ABCENCES, component: AbsencesManagementComponent,
+        children: [
+          {path: '', component: CounterComponent}
+        ]
+      },
       {path: PATH_ABCENCES + '/' + PATH_ABCENCES_AJOUT, component: DemandeAbsenceComponent},
       {path: PATH_ABCENCES + '/' + PATH_ABCENCES_UPDATE, component: AbsenceManagementUpdateComponent},
       {path: PATH_ABCENCES + '/' + PATH_ABCENCES_SHOW, component: AbsenceManagementShowComponent},
-      {path: PATH_PLANNING, component: PlanningComponent},
+      {
+        path: PATH_PLANNING, component: PlanningComponent,
+        children: [
+          {path: '', component: CounterComponent}
+        ]
+      },
       {path: PATH_VALIDATION, component: ValidationDemandeComponent},
       {path: PATH_FERIE, component: JoursFeriesComponent},
       {path: PATH_FERIE + '/' + PATH_JOURS_FERIE_AJOUT, component: CreationFerieRttComponent},

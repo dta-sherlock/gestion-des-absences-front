@@ -4,7 +4,7 @@ import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
 import {isGreaterThanTodayValidator} from '../validators/validators';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Subject} from 'rxjs/Subject';
-import {FerieRtt} from '../Model/ferie_rtt';
+import {FerieRtt} from '../model/ferie_rtt';
 import * as moment from 'moment';
 
 @Component({

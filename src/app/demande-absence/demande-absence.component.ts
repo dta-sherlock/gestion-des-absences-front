@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {isGreaterThanTodayValidator} from '../validators/validators';
-import {DemandeAbsence} from '../Model/demande';
+import {DemandeAbsence} from '../model/demande';
 
 @Component({
   selector: 'app-demande-absence',

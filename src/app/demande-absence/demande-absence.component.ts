@@ -30,7 +30,6 @@ export class DemandeAbsenceComponent implements OnInit {
   //Fonction utilisée pour griser les jours passés (jour courant inclus)
   avantDate(date: NgbDateStruct) {
     let dateFormat = new Date(date.year, date.month - 1, date.day);
-
     return moment().isAfter(dateFormat);
   }
 

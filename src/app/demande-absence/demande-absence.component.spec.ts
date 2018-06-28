@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DemandeAbsenceComponent } from './demande-absence.component';
+import {NgbDateStruct} from "@ng-bootstrap/ng-bootstrap";
 
 describe('DemandeAbsenceComponent', () => {
   let component: DemandeAbsenceComponent;

@@ -25,7 +25,7 @@ import {UtilisateurService} from './services/utilisateur.service';
 import {DemandeAbsenceComponent} from './demande-absence/demande-absence.component';
 import {CounterComponent} from './counter/counter.component';
 import {AbsenceService} from './services/AbsenceService';
-import {DatePipe} from "@angular/common";
+import {CreationFerieRttComponent} from './creation-ferie-rtt/creation-ferie-rtt.component';
 
 
 @NgModule({
@@ -42,7 +42,8 @@ import {DatePipe} from "@angular/common";
     ValidationDemandeComponent,
     SynthetiqueComponent,
     JoursFeriesComponent,
-    CounterComponent
+    CounterComponent,
+    CreationFerieRttComponent
   ],
   imports: [
     BrowserModule,

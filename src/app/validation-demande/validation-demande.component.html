@@ -1,6 +1,5 @@
-<h1>Validation des demandes</h1>
 <div class="container">
-  <h1>Gestion des absences</h1>
+  <h1>Validation des demandes</h1>
   <table class="table table-striped centre">
     <thead class="table-active">
     <tr>
@@ -11,7 +10,17 @@
       <th>Actions</th>
     </tr>
     </thead>
-    <tbody>
+    <tbody *ngFor="let absence of absences">
+    <tr *ngIf="absence.statut == 'En_Attente_Validation'">
+      <td> {{absence.dateDebut| date:'dd/MM/yyyy' }}</td>
+      <td> {{absence.dateFin| date:'dd/MM/yyyy' }}</td>
+      <td> {{absence.type}}</td>
+      <td>{{utilisateur.nom}}</td>
+      <td><a href="#">
+        <fa name="check" class="text-success"></fa>
+      </a><a href="#">
+        <fa name="times-circle" class="text-danger"></fa>
+      </a></td>
     </tbody>
   </table>
 </div>

@@ -2,16 +2,17 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
-import {AppComponent} from './app.component';
+import { AppComponent } from './app.component';
 import {LoginComponent} from './login/login.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
-import {HomeComponent} from './home/home.component';
+import { HomeComponent } from './home/home.component';
 import {AbsencesManagementComponent} from './absences-management/absences-management.component';
-import {AbsenceManagementUpdateComponent} from './absences-management//absence-management-update/absence-management-update.component';
+import {AbsenceManagementUpdateComponent} from './absences-management/absence-management-update/absence-management-update.component';
 import {RouterModule} from '@angular/router';
 import {ROUTES} from './app.route';
-import {AbsenceManagementShowComponent} from './absences-management//absence-management-show/absence-management-show.component';
+import {AbsenceManagementShowComponent} from './absences-management/absence-management-show/absence-management-show.component';
+
 import {AngularFontAwesomeModule} from 'angular-font-awesome';
 import {LayoutComponent} from './layout/layout.component';
 import {UtilisateurGuard} from './guards/utilisateur.guard';
@@ -56,7 +57,8 @@ import {CreationFerieRttComponent} from './creation-ferie-rtt/creation-ferie-rtt
   providers: [
     AbsenceService,
     UtilisateurGuard,
-    UtilisateurService
+    UtilisateurService,
+    DatePipe
 
   ],
   bootstrap: [AppComponent]

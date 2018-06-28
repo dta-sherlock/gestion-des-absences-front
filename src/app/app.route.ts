@@ -8,8 +8,8 @@ import {
   PATH_ABCENCES_UPDATE, PATH_FERIE,
   PATH_HOME, PATH_LAYOUT, PATH_LOGIN, PATH_PLANNING, PATH_SYNTHETIQUE, PATH_VALIDATION
 } from './app.constRoute';
-import {AbsenceManagementUpdateComponent} from './absence-management-update/absence-management-update.component';
-import {AbsenceManagementShowComponent} from './absence-management-show/absence-management-show.component';
+import {AbsenceManagementUpdateComponent} from './absences-management/absence-management-update/absence-management-update.component';
+import {AbsenceManagementShowComponent} from './absences-management/absence-management-show/absence-management-show.component';
 import {LoginComponent} from './login/login.component';
 import {LayoutComponent} from './layout/layout.component';
 import {PlanningComponent} from './planning/planning.component';

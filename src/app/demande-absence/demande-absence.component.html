@@ -8,7 +8,7 @@
       <div class="input-group">
         <input class="form-control" placeholder="yyyy-mm-dd"
                name="dp" ngbDatepicker [dayTemplate]="customDay" #d="ngbDatepicker" id="dateDebut"
-               [formControl]="dateDebCtrl" [(ngModel)]="absence.dateDeb">
+               [formControl]="dateDebCtrl" [(ngModel)]="date1">
         <div class="input-group-append">
           <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
             <img src="../../assets/img/calendar.png" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
@@ -31,7 +31,7 @@
       <div class="input-group">
         <input class="form-control" placeholder="yyyy-mm-dd"
                name="dp" ngbDatepicker [dayTemplate]="customDay" #e="ngbDatepicker" id="dateFin"
-               [formControl]="dateFinCtrl" [(ngModel)]="absence.dateFin">
+               [formControl]="dateFinCtrl" [(ngModel)]="date2">
         <div class="input-group-append">
           <button class="btn btn-outline-secondary" (click)="e.toggle()" type="button">
             <img src="../../assets/img/calendar.png" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>

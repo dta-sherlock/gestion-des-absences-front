@@ -25,6 +25,7 @@ import {UtilisateurService} from './services/utilisateur.service';
 import {DemandeAbsenceComponent} from './demande-absence/demande-absence.component';
 import {CounterComponent} from './counter/counter.component';
 import {AbsenceService} from './services/AbsenceService';
+import {DatePipe} from "@angular/common";
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import {AbsenceService} from './services/AbsenceService';
   providers: [
     AbsenceService,
     UtilisateurGuard,
-    UtilisateurService
+    UtilisateurService,
+    DatePipe
 
   ],
   bootstrap: [AppComponent]

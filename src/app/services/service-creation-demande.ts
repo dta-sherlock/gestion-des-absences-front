@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {DemandeAbsence} from '../Model/demande';
+import {DemandeAbsence} from '../model/demande';
 
 const API_BASE_URL: string = 'http://localhost:4200/';
 

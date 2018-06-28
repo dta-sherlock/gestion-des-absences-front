@@ -32,7 +32,10 @@
             <a class="nav-link"  *ngIf="utilisateur.grade == 'Manager'" href="" routerLink="/synthetique" >Vues synthétiques</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " *ngIf="utilisateur.grade == 'Administrateur' || utilisateur.grade == 'Employé' || utilisateur.grade == 'Manager'" href="" routerLink="/feries" >Jours féries</a>
+            <a class="nav-link "
+               *ngIf="utilisateur.grade == 'Administrateur' || utilisateur.grade == 'Employé' || utilisateur.grade == 'Manager'"
+               href="" routerLink="/ferieRtts">Jours féries
+            </a>
           </li>
         </ul>
       </div>

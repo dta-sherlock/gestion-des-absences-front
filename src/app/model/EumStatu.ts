@@ -1,5 +1,5 @@
 export enum statut {
   INITIALE = 'Initiale',
-  EN_ATTENTE8_VALIDATION = 'En_Attente_Validation',
+  EN_ATTENTE_VALIDATION = 'En_Attente_Validation',
   REJETEE = 'Rejetee'
 }

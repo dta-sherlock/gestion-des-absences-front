@@ -15,7 +15,7 @@ export interface CalendarDate {
 })
 export class PlanningComponent implements OnInit, OnChanges {
 
-  currentDate = moment();
+  currentDate = moment().locale('fr');
   dayNames = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
   weeks: CalendarDate[][] = [];
   sortedDates: CalendarDate[] = [];
@@ -27,7 +27,6 @@ export class PlanningComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
-    this.currentDate.lang('fr');
     this.generateCalendar();
   }
 

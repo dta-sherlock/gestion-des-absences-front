@@ -84,3 +84,67 @@ $dayBase: 9em;
     }
   }
 }
+
+.ferie {
+  &::after {
+    content: '';
+    height: 4em;
+    width: 4em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    transition: background-color 150ms linear, color 150ms linear;
+    z-index: 1;
+    background-color: greenyellow;
+  }
+}
+
+.rtt {
+  &::after {
+    content: '';
+    height: 4em;
+    width: 4em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    transition: background-color 150ms linear, color 150ms linear;
+    z-index: 1;
+    background-color: red;
+  }
+}
+
+.congée {
+  &::after {
+    content: '';
+    height: 4em;
+    width: 4em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    transition: background-color 150ms linear, color 150ms linear;
+    z-index: 1;
+    background-color: blue;
+  }
+}
+
+.congéeAtt {
+  &::after {
+    content: '';
+    height: 4em;
+    width: 4em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    transition: background-color 150ms linear, color 150ms linear;
+    z-index: 1;
+    background-color: yellow;
+  }
+}

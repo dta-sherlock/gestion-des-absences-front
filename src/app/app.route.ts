@@ -7,7 +7,7 @@ import {
   PATH_ABCENCES_SHOW,
   PATH_ABCENCES_UPDATE,
   PATH_FERIE,
-  PATH_HOME,
+  PATH_HOME, PATH_JOURS_FERIE_AJOUT,
   PATH_LAYOUT,
   PATH_LOGIN,
   PATH_PLANNING,
@@ -24,6 +24,7 @@ import {ValidationDemandeComponent} from './validation-demande/validation-demand
 import {JoursFeriesComponent} from './jours-feries/jours-feries.component';
 import {SynthetiqueComponent} from './synthetique/synthetique.component';
 import {DemandeAbsenceComponent} from './demande-absence/demande-absence.component';
+import {CreationFerieRttComponent} from './creation-ferie-rtt/creation-ferie-rtt.component';
 
 
 export const ROUTES: Routes = [
@@ -40,6 +41,7 @@ export const ROUTES: Routes = [
       {path: PATH_PLANNING, component: PlanningComponent},
       {path: PATH_VALIDATION, component: ValidationDemandeComponent},
       {path: PATH_FERIE, component: JoursFeriesComponent},
+      {path: PATH_FERIE + '/' + PATH_JOURS_FERIE_AJOUT, component: CreationFerieRttComponent},
       {path: PATH_SYNTHETIQUE, component: SynthetiqueComponent}
     ]
   },

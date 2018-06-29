@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Absence} from '../model/absence';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {AbsenceService} from '../services/AbsenceService';
-import {statut} from '../model/EumStatu';
+import {statut} from '../model/EnumStatut';
 
 
 @Component({

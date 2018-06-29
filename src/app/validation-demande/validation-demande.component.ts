@@ -3,6 +3,7 @@ import {Absence} from '../model/absence';
 import {AbsenceService} from '../services/AbsenceService';
 import {UtilisateurService} from '../services/utilisateur.service';
 import Utilisateur from '../model/utilisateur';
+import {statut} from '../model/EumStatu';
 
 @Component({
   selector: 'app-validation-demande',
@@ -11,11 +12,20 @@ import Utilisateur from '../model/utilisateur';
 })
 export class ValidationDemandeComponent implements OnInit {
   absences: Array<Absence>;
-  utilisateur: Utilisateur = UtilisateurService.utilisateur;
+  utilisateur: Utilisateur = this.utilisateurService.getUtilisateurCourant();
 
-  constructor(private service: AbsenceService) {
+  constructor(private service: AbsenceService, private utilisateurService: UtilisateurService) {
   }
 
+  ValideAbsence(absence: Absence) {
+    absence.statut = statut.VALIDEE;
+    return this.service.updateAbsence(absence).subscribe();
+  }
+
+  RefusAbsence(absence: Absence) {
+    absence.statut = statut.REJETEE;
+    return this.service.updateAbsence(absence).subscribe();
+  }
   ngOnInit() {
     this.service.getAbsences().subscribe(abs => {
       this.absences = abs;

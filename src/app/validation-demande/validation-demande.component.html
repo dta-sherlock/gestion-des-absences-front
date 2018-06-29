@@ -6,21 +6,24 @@
       <th>Date de début</th>
       <th>Date de fin</th>
       <th>Type</th>
-      <th>Statut</th>
+      <th>Nom</th>
       <th>Actions</th>
     </tr>
     </thead>
     <tbody *ngFor="let absence of absences">
-    <tr *ngIf="absence.statut == 'En_Attente_Validation'">
+    <tr *ngIf="absence.statut == 'EN_ATTENTE_VALIDATION'">
       <td> {{absence.dateDebut| date:'dd/MM/yyyy' }}</td>
       <td> {{absence.dateFin| date:'dd/MM/yyyy' }}</td>
       <td> {{absence.type}}</td>
       <td>{{utilisateur.nom}}</td>
-      <td><a href="#">
-        <fa name="check" class="text-success"></fa>
-      </a><a href="#">
-        <fa name="times-circle" class="text-danger"></fa>
-      </a></td>
+      <td>
+        <button (click)="ValideAbsence(absence)">
+          <fa name="check" class="text-success"></fa>
+        </button>
+        <button (click)="RefusAbsence(absence)">
+          <fa name="times-circle" class="text-danger"></fa>
+        </button>
+      </td>
     </tbody>
   </table>
 </div>

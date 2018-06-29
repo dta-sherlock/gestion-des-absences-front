@@ -2,25 +2,35 @@ import {Injectable} from '@angular/core';
 import Utilisateur from '../model/utilisateur';
 import {Observable} from 'rxjs/Observable';
 import {HttpClient} from '@angular/common/http';
-import {Router} from '@angular/router';
 import * as sha from 'sha256';
 import {API_BASE_URL, API_UTILISATEUR} from './constServices';
 
 
 @Injectable()
 export class UtilisateurService {
-  static utilisateur: Utilisateur;
+  private utilisateur: Utilisateur;
 
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(private http: HttpClient) {
   }
 
 
   initialisationRole(utilisateur: Utilisateur) {
-    UtilisateurService.utilisateur = utilisateur;
+    this.setUtilisateurCourant(utilisateur);
   }
   reinitialisationRole() {
-    UtilisateurService.utilisateur = null;
+    this.setUtilisateurCourant(null);
   }
+
+  setUtilisateurCourant(utilisateur: Utilisateur) {
+    this.utilisateur = utilisateur;
+  }
+
+
+  getUtilisateurCourant() {
+    return this.utilisateur;
+  }
+
+
   getUtilisateurByEmailAndMdp(utilisateur: Utilisateur) {
     return this.http.get<Utilisateur>(`${API_BASE_URL}${API_UTILISATEUR}?email=${utilisateur.email}&mdp=${sha(utilisateur.mdp)}`);
   }

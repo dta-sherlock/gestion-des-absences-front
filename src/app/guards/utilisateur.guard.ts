@@ -13,7 +13,7 @@ export class UtilisateurGuard implements CanActivateChild {
   canActivateChild(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    if (UtilisateurService.utilisateur == null) {
+    if (this.utilisateurService.getUtilisateurCourant() == null) {
       this.router.navigate(['/connexion']);
       return false;
     }

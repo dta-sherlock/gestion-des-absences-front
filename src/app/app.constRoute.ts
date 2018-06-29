@@ -14,7 +14,7 @@ export const PATH_PLANNING = 'planning';
 // vues synthétiques
 export const PATH_SYNTHETIQUE = 'synthetique';
 // jours fériés
-export const PATH_FERIE = 'feries';
+export const PATH_FERIE = 'ferieRtts';
 export const PATH_JOURS_FERIE_AJOUT = 'ajouter';
 export const PATH_JOURS_FERIE_UPDATE = 'modifier';
 export const PATH_JOURS_FERIE_SHOW = 'visualiser';

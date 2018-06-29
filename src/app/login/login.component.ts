@@ -12,7 +12,6 @@ import {PATH_LAYOUT} from '../app.constRoute';
   styleUrls: ['./login.component.css'],
   providers: [
     FormBuilder,
-    UtilisateurService
   ]
 })
 export class LoginComponent implements OnInit {
@@ -45,12 +44,10 @@ export class LoginComponent implements OnInit {
 
     });
   }
-
   ngOnInit() {
 
     this.utilisateur = new Utilisateur(0, '', '', '', '', '', 0, 0);
 
   }
-
 }
 

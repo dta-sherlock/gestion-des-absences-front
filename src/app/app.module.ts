@@ -8,11 +8,10 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import {HomeComponent} from './home/home.component';
 import {AbsencesManagementComponent} from './absences-management/absences-management.component';
-import {AbsenceManagementAddComponent} from './absence-management-add/absence-management-add.component';
-import {AbsenceManagementUpdateComponent} from './absence-management-update/absence-management-update.component';
+import {AbsenceManagementUpdateComponent} from './absences-management//absence-management-update/absence-management-update.component';
 import {RouterModule} from '@angular/router';
 import {ROUTES} from './app.route';
-import {AbsenceManagementShowComponent} from './absence-management-show/absence-management-show.component';
+import {AbsenceManagementShowComponent} from './absences-management//absence-management-show/absence-management-show.component';
 import {AngularFontAwesomeModule} from 'angular-font-awesome';
 import {LayoutComponent} from './layout/layout.component';
 import {UtilisateurGuard} from './guards/utilisateur.guard';
@@ -20,15 +19,20 @@ import {PlanningComponent} from './planning/planning.component';
 import {ValidationDemandeComponent} from './validation-demande/validation-demande.component';
 import {SynthetiqueComponent} from './synthetique/synthetique.component';
 import {JoursFeriesComponent} from './jours-feries/jours-feries.component';
-import { HttpClientModule} from '@angular/common/http';
+import {HttpClientModule} from '@angular/common/http';
+import {UtilisateurService} from './services/utilisateur.service';
+import {DemandeAbsenceComponent} from './demande-absence/demande-absence.component';
+import {CounterComponent} from './counter/counter.component';
+import {AbsenceService} from './services/AbsenceService';
+import {CreationFerieRttComponent} from './creation-ferie-rtt/creation-ferie-rtt.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    DemandeAbsenceComponent,
     AbsencesManagementComponent,
-    AbsenceManagementAddComponent,
     AbsenceManagementUpdateComponent,
     AbsenceManagementShowComponent,
     LoginComponent,
@@ -37,7 +41,8 @@ import { HttpClientModule} from '@angular/common/http';
     ValidationDemandeComponent,
     SynthetiqueComponent,
     JoursFeriesComponent,
-
+    CounterComponent,
+    CreationFerieRttComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +54,9 @@ import { HttpClientModule} from '@angular/common/http';
     HttpClientModule
   ],
   providers: [
+    AbsenceService,
     UtilisateurGuard,
+    UtilisateurService
 
   ],
   bootstrap: [AppComponent]

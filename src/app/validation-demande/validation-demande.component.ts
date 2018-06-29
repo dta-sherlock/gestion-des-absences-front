@@ -12,6 +12,7 @@ import {statut} from '../model/EumStatu';
 })
 export class ValidationDemandeComponent implements OnInit {
   absences: Array<Absence>;
+  wait = statut.EN_ATTENTE_VALIDATION;
   utilisateur: Utilisateur = this.utilisateurService.getUtilisateurCourant();
 
   constructor(private service: AbsenceService, private utilisateurService: UtilisateurService) {
@@ -26,6 +27,7 @@ export class ValidationDemandeComponent implements OnInit {
     absence.statut = statut.REJETEE;
     return this.service.updateAbsence(absence).subscribe();
   }
+
   ngOnInit() {
     this.service.getAbsences().subscribe(abs => {
       this.absences = abs;

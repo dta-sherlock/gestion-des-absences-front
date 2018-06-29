@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Absence} from '../model/absence';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {AbsenceService} from '../services/AbsenceService';
+import {statut} from '../model/EumStatu';
 
 
 @Component({
@@ -13,7 +14,7 @@ export class AbsencesManagementComponent implements OnInit {
 
   closeResult: string;
   absences: Array<Absence>;
-
+  init = statut.INITIALE;
   constructor(private modalService: NgbModal, private service: AbsenceService) {
   }
 

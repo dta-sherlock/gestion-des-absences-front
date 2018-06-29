@@ -25,8 +25,6 @@ import {DemandeAbsenceComponent} from './demande-absence/demande-absence.compone
 import {CounterComponent} from './counter/counter.component';
 import {AbsenceService} from './services/AbsenceService';
 import {CreationFerieRttComponent} from './creation-ferie-rtt/creation-ferie-rtt.component';
-import {RttService} from './services/rtt.service';
-import {FerieService} from './services/ferie.service';
 
 
 @NgModule({
@@ -58,7 +56,7 @@ import {FerieService} from './services/ferie.service';
   providers: [
     AbsenceService,
     UtilisateurGuard,
-    UtilisateurService,
+    UtilisateurService
 
   ],
   bootstrap: [AppComponent]

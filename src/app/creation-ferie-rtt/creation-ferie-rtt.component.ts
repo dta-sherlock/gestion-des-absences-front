@@ -10,7 +10,7 @@ import {ferieRttType} from '../model/EnumFerieRttType';
 import {FerieService} from '../services/ferie.service';
 import {RttService} from '../services/rtt.service';
 import {Rtt} from '../model/rtt';
-import {statut} from '../model/EumStatu';
+import {statut} from '../model/EnumStatut';
 import {Ferie} from '../model/ferie';
 
 @Component({

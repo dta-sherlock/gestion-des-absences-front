@@ -25,6 +25,8 @@ export class AbsenceService {
     return this.http.post(`${API_BASE_URL}${API_ABSENCES}`, absence);
   }
 
-
+  putAbsence(absence: Absence): Observable<Absence> {
+    return <Observable<Absence>> this.http.put(`${API_BASE_URL}${API_ABSENCES}` , absence);
+  }
 
 }

@@ -8,10 +8,11 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import {HomeComponent} from './home/home.component';
 import {AbsencesManagementComponent} from './absences-management/absences-management.component';
-import {AbsenceManagementUpdateComponent} from './absences-management//absence-management-update/absence-management-update.component';
+import {AbsenceManagementUpdateComponent} from './absences-management/absence-management-update/absence-management-update.component';
 import {RouterModule} from '@angular/router';
 import {ROUTES} from './app.route';
-import {AbsenceManagementShowComponent} from './absences-management//absence-management-show/absence-management-show.component';
+import {AbsenceManagementShowComponent} from './absences-management/absence-management-show/absence-management-show.component';
+
 import {AngularFontAwesomeModule} from 'angular-font-awesome';
 import {LayoutComponent} from './layout/layout.component';
 import {UtilisateurGuard} from './guards/utilisateur.guard';

@@ -28,7 +28,6 @@ import {DemandeAbsenceComponent} from './demande-absence/demande-absence.compone
 import {CounterComponent} from './counter/counter.component';
 import {CreationFerieRttComponent} from './creation-ferie-rtt/creation-ferie-rtt.component';
 
-
 export const ROUTES: Routes = [
   {path: PATH_LOGIN, component: LoginComponent},
   {

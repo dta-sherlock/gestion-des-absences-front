@@ -4,7 +4,7 @@ import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {RttService} from '../services/rtt.service';
 import {FerieService} from '../services/ferie.service';
 import * as moment from 'moment';
-import {statut} from '../model/EumStatu';
+import {statut} from '../model/EnumStatut';
 
 
 @Component({

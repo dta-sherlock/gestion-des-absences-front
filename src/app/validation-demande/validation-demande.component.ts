@@ -3,7 +3,7 @@ import {Absence} from '../model/absence';
 import {AbsenceService} from '../services/AbsenceService';
 import {UtilisateurService} from '../services/utilisateur.service';
 import Utilisateur from '../model/utilisateur';
-import {statut} from '../model/EumStatu';
+import {statut} from '../model/EnumStatut';
 
 @Component({
   selector: 'app-validation-demande',

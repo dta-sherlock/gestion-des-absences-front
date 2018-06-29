@@ -1,8 +1,13 @@
 import {Component, OnInit} from '@angular/core';
-import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {isGreaterThanTodayValidator} from '../validators/validators';
-import {DemandeAbsence} from '../model/demande';
+import {NgbDateStruct} from "@ng-bootstrap/ng-bootstrap";
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {isGreaterThanTodayValidator} from "../validators/validators";
+import {Subject} from 'rxjs';
+import {debounceTime} from 'rxjs/operators';
+import * as moment from 'moment';
+import {AbsenceService} from "../services/AbsenceService";
+import {Absence} from "../model/absence";
+import {statut} from "../model/EnumStatut";
 
 @Component({
   selector: 'app-demande-absence',
@@ -14,33 +19,29 @@ import {DemandeAbsence} from '../model/demande';
 })
 export class DemandeAbsenceComponent implements OnInit {
 
-  retourVisualisationDemandes() {
-
-  }
+  private _success = new Subject<string>();
+  successMessage: string;
 
   dateDebCtrl: FormControl;
   dateFinCtrl: FormControl;
   userForm: FormGroup;
+  date1={year:0,month:0,day:0};
+  date2={year:0,month:0,day:0};
 
-  absence: DemandeAbsence = new DemandeAbsence(null, null, '', '');
+  absence= new Absence(null, new Date(), null, null, null, statut.INITIALE);
 
   model: NgbDateStruct;
 
+  //Fonction utilisée pour griser les jours passés (jour courant inclus)
   avantDate(date: NgbDateStruct) {
-    let date1 = new Date();
-    let dateDuJour: NgbDateStruct = {day: date1.getDate(), month: date1.getMonth() + 1, year: date1.getFullYear()};
-    if (date.year * 10000 + date.month * 100 + date.day <= dateDuJour.year * 10000 + dateDuJour.month * 100 + dateDuJour.day) {
-      return true;
-    } else {
-      return false;
-    }
+    let dateFormat = new Date(date.year, date.month - 1, date.day);
+    return moment().isAfter(dateFormat);
   }
 
-  handleSubmit() {
-    console.log(this.absence);
-  }
 
-  constructor(fb: FormBuilder) {
+
+
+  constructor(fb: FormBuilder, private absService: AbsenceService) {
     this.dateDebCtrl = fb.control('', [Validators.required, isGreaterThanTodayValidator]);
     this.dateFinCtrl = fb.control('', [Validators.required, isGreaterThanTodayValidator]);
     this.userForm = fb.group({
@@ -49,6 +50,19 @@ export class DemandeAbsenceComponent implements OnInit {
     });
   }
 
+  handleSubmit() {
+    this.absence.dateDebut = new Date(Date.UTC(this.date1.year, this.date1.month - 1, this.date1.day));
+    this.absence.dateFin = new Date(Date.UTC(this.date2.year, this.date2.month - 1, this.date2.day));
+    this.absService.putAbsence(this.absence).subscribe();
+  }
+
   ngOnInit() {
+    this._success.subscribe((message) => this.successMessage = message);
+    this._success.pipe(
+      debounceTime(3000)
+    ).subscribe(() => this.successMessage = null);
+  }
+  public changeSuccessMessage() {
+    this._success.next(`La demande d'absence a bien été envoyée.`);
   }
 }

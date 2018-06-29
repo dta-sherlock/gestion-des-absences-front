@@ -12,9 +12,9 @@ import {statut} from '../model/EumStatu';
 })
 export class ValidationDemandeComponent implements OnInit {
   absences: Array<Absence>;
-  utilisateur: Utilisateur = UtilisateurService.utilisateur;
+  utilisateur: Utilisateur = this.utilisateurService.getUtilisateurCourant();
 
-  constructor(private service: AbsenceService) {
+  constructor(private service: AbsenceService, private utilisateurService: UtilisateurService) {
   }
 
   ValideAbsence(absence: Absence) {

@@ -58,6 +58,7 @@ import {CreationFerieRttComponent} from './creation-ferie-rtt/creation-ferie-rtt
     AbsenceService,
     UtilisateurGuard,
     UtilisateurService
+
   ],
   bootstrap: [AppComponent]
 })

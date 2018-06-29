@@ -22,7 +22,7 @@
         </a>
       </td>
       <td>
-        <span *ngIf="absence.type!='mission' && absence.statut!='INITIALE'">
+        <span *ngIf="absence.type!='mission' && absence.statut!=init">
         <a [routerLink]="['/absences/modifier']">
           <fa name="edit"></fa>
         </a>

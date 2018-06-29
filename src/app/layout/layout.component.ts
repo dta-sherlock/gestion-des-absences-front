@@ -13,7 +13,7 @@ import Utilisateur from '../model/utilisateur';
 })
 export class LayoutComponent implements OnInit {
 
-  utilisateur: Utilisateur = UtilisateurService.utilisateur;
+  utilisateur: Utilisateur = this.utilisateurService.getUtilisateurCourant();
   isNavbarCollapsed = true;
 
   constructor(private router: Router, private utilisateurService: UtilisateurService) {

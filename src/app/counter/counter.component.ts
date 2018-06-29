@@ -7,14 +7,13 @@ import Utilisateur from '../model/utilisateur';
   templateUrl: './counter.component.html',
   styleUrls: ['./counter.component.css'],
   providers: [
-    UtilisateurService
   ]
 })
 export class CounterComponent implements OnInit {
 
-  utilisateur: Utilisateur = UtilisateurService.utilisateur;
+  utilisateur: Utilisateur = this.utilisateurService.getUtilisateurCourant();
 
-  constructor() {
+  constructor(private utilisateurService: UtilisateurService) {
   }
 
   ngOnInit() {

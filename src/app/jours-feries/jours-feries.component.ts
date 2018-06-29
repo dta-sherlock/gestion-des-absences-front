@@ -1,11 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {FerieRtt} from '../model/ferie_rtt';
-import {Ferie} from '../model/ferie';
-import {Rtt} from '../model/rtt';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {RttService} from '../services/rtt.service';
 import {FerieService} from '../services/ferie.service';
 import * as moment from 'moment';
+import {statut} from '../model/EumStatu';
 
 
 @Component({
@@ -25,6 +24,7 @@ export class JoursFeriesComponent implements OnInit {
   annees: Array<number> = [
     this.anneeAfficher
   ];
+  init = statut.INITIALE;
 
   closeResult: string;
 

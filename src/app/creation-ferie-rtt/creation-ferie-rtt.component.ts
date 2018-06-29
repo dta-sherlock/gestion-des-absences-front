@@ -47,7 +47,7 @@ export class CreationFerieRttComponent implements OnInit {
   }
 
   handleSubmit() {
-    this.ferieRtt.date = new Date(Date.UTC(this.date.year, this.date.month - 1, this.date.day ));
+    this.ferieRtt.date = new Date(Date.UTC(this.date.year, this.date.month - 1, this.date.day));
     if (this.ferieRtt.type == ferieRttType.RTT) {
       this.rttService.addRtt(new Rtt(null, this.ferieRtt.date, this.ferieRtt.commentaire, statut.INITIALE)).subscribe();
     }

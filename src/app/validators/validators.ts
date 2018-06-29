@@ -9,4 +9,4 @@ export function isGreaterThanTodayValidator(control: FormControl) {
     retour = moment().isAfter(dateFormat) ? {isGreaterThanToday: true} : null;
   }
   return retour;
-};
+}

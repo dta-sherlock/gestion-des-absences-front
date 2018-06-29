@@ -5,7 +5,6 @@ import {Rtt} from '../model/rtt';
 import {API_BASE_URL, API_FERIE, API_RTT} from './constServices';
 
 
-
 @Injectable()
 export class RttService {
 

@@ -38,5 +38,7 @@ export class FerieService {
   modifFerie(ferie: Ferie) {
     return this.http.put<Ferie>(`${API_BASE_URL}${API_FERIE}/${ferie.id}`, ferie);
   }
-
 }
+
+
+

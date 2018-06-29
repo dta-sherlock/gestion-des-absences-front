@@ -1,6 +1,10 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import * as moment from 'moment';
 import * as _ from 'lodash';
+import {Ferie} from '../model/ferie';
+import {FerieService} from '../services/ferie.service';
+import {RttService} from '../services/rtt.service';
+import {Rtt} from '../model/rtt';
 
 export interface CalendarDate {
   mDate: moment.Moment;
@@ -19,17 +23,25 @@ export class PlanningComponent implements OnInit, OnChanges {
   dayNames = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
   weeks: CalendarDate[][] = [];
   sortedDates: CalendarDate[] = [];
+  feries: Array<Ferie> = [];
+  rtts: Array<Rtt> = [];
+  dateFeries: Array<Date> = [];
+  dateRtts: Array<Date> = [];
+  jourFeries: Array<number> = [];
+  jourRtts: Array<number> = [];
 
   @Input() selectedDates: CalendarDate[] = [];
+  @Input()
   @Output() onSelectDate = new EventEmitter<CalendarDate>();
 
-  constructor() {
+  constructor(private ferieService: FerieService, private rttService: RttService) {
   }
 
   ngOnInit(): void {
+    this.setJourFeries();
+    this.setJourRtt();
     this.generateCalendar();
   }
-
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.selectedDates &&
       changes.selectedDates.currentValue &&
@@ -61,12 +73,28 @@ export class PlanningComponent implements OnInit, OnChanges {
 
   // actions from calendar
   prevMonth(): void {
-    this.currentDate = moment(this.currentDate).subtract(1, 'months');
+    if (moment(this.currentDate).subtract(1, 'months').year() !== this.currentDate.year()) {
+      this.currentDate = moment(this.currentDate).subtract(1, 'months');
+      this.setJourFeries();
+      this.setJourRtt();
+    } else {
+      this.currentDate = moment(this.currentDate).subtract(1, 'months');
+      this.getFerieMois();
+      this.getRttMois();
+    }
     this.generateCalendar();
   }
 
   nextMonth(): void {
-    this.currentDate = moment(this.currentDate).add(1, 'months');
+    if (moment(this.currentDate).add(1, 'months').year() !== this.currentDate.year()) {
+      this.currentDate = moment(this.currentDate).add(1, 'months');
+      this.setJourFeries();
+      this.setJourRtt();
+    } else {
+      this.currentDate = moment(this.currentDate).add(1, 'months');
+      this.getFerieMois();
+      this.getRttMois();
+    }
     this.generateCalendar();
   }
 
@@ -82,11 +110,15 @@ export class PlanningComponent implements OnInit, OnChanges {
 
   prevYear(): void {
     this.currentDate = moment(this.currentDate).subtract(1, 'year');
+    this.setJourFeries();
+    this.setJourRtt();
     this.generateCalendar();
   }
 
   nextYear(): void {
     this.currentDate = moment(this.currentDate).add(1, 'year');
+    this.setJourFeries();
+    this.setJourRtt();
     this.generateCalendar();
   }
 
@@ -115,5 +147,49 @@ export class PlanningComponent implements OnInit, OnChanges {
           mDate: d,
         };
       });
+  }
+
+  setJourFeries(): void {
+    this.feries = [];
+    this.dateFeries = [];
+    this.ferieService.getFeriesByYear(this.currentDate.year()).toPromise().then(data => this.feries = data)
+      .then(() => {
+        for (let ferie of this.feries) {
+          ferie.date = new Date(ferie.date);
+          this.dateFeries.push(ferie.date);
+        }
+        this.getFerieMois();
+      });
+  }
+
+  getFerieMois(): void {
+    this.jourFeries = [];
+    for (let date of this.dateFeries) {
+      if (date.getMonth() === this.currentDate.month()) {
+        this.jourFeries.push(date.getDate());
+      }
+    }
+  }
+
+  setJourRtt(): void {
+    this.rtts = [];
+    this.dateRtts = [];
+    this.rttService.getRttsByYear(this.currentDate.year()).toPromise().then(data => this.rtts = data)
+      .then(() => {
+        for (let rtt of this.rtts) {
+          rtt.date = new Date(rtt.date);
+          this.dateRtts.push(rtt.date);
+        }
+        this.getRttMois();
+      });
+  }
+
+  getRttMois(): void {
+    this.jourRtts = [];
+    for (let date of this.dateRtts) {
+      if (date.getMonth() === this.currentDate.month()) {
+        this.jourRtts.push(date.getDate());
+      }
+    }
   }
 }

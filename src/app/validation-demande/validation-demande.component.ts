@@ -11,9 +11,9 @@ import Utilisateur from '../model/utilisateur';
 })
 export class ValidationDemandeComponent implements OnInit {
   absences: Array<Absence>;
-  utilisateur: Utilisateur = UtilisateurService.utilisateur;
+  utilisateur: Utilisateur = this.utilisateurService.getUtilisateurCourant();
 
-  constructor(private service: AbsenceService) {
+  constructor(private service: AbsenceService, private utilisateurService: UtilisateurService) {
   }
 
   ngOnInit() {
